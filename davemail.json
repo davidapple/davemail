@@ -1,0 +1,19 @@
+/*!
+ *  Davemail 0.0.1 by David Apple - https://github.com/davidapple
+ *  Donate Bitcoin - 13D3A8PP91MLF5VTBQMH5HG76F42RNRF28 - https://onename.com/davidapple
+ *  Licensed under MIT
+ *  What if the world's email existed in json files like this.
+ */
+
+ {
+    "davemail": {
+        "users": {
+            "guest": {
+                "publicKey": "-----BEGIN PGP PUBLIC KEY BLOCK----- Version: BCPG C# v1.6.1.0 mQENBFb//xwBCACtKGCeHsKUDx0Vcw6yo6MX3N+3C2B775pPpiLz47k3jX3IM5rY44kuUG+j+DuJTFxT5gT9bN3Mevy6wL9vcBrZAEtioyTSiOW4QyHRhoCO4iV9NiYXSneeH+8a1uxxlfvQjVZx1z0880xlrgbAm8Ugt/iz2KCmQm5boMYW/8fEgoILWrKryfyeTOaJwD2y48ZKd/UmBmgfIB+IbZn/flbS35FeKfRabmRx75VzLtjvrIGuUwSC1Hs3wkGE8BXssDDDbRFoAvMTgk5gynWvLEK1mUJhBAkFM9T7dY3+NlA0nxInZVcfwRUXY/citGc1W8hln8qgkdahZtntPHaxKLLzABEBAAG0BWd1ZXN0iQEcBBABAgAGBQJW//8cAAoJEAt1/FsdbQYFKIIH/0Gn5+hvQer+oWTApUtaQQv7LohuhOptqdi8bH/KTiEj4ojv14xTilK4odWF6SUE8RUMPAOomATrCchwLi0b83WoqXT0QIw5ia/Lv+Sob+VVzpii6pYlx2j+8a7elfExncUhR9JzWCVWZHAueHhvuddKuo7dJ8Ztd40N/O5tvEHsmSxn47MsA8/8B+A44Go73RUpZ1SvvedTp3L8EfcTeRug86P0xAHKovDY7DbK3w3DVft6AbnKxzczcHpPEYEbOBYG/HB266M4Z4ggOOcPfiSfkQAQwQRWHwEEKTIQ1XrNY80Vnb0STCBC5prMW7rMx/hfbg16uLLIojkJy5f9cdk==qAKD-----END PGP PUBLIC KEY BLOCK-----"
+            }
+        },
+        "emails": {
+            "02-04-2016 18:18:00": "-----BEGIN PGP MESSAGE----- Version: BCPG C# v1.6.1.0 hQEMAwt1/FsdbQYFAQf/c6mIZECZm8On26fNtc98mM2CqdVr7Wtwl5JQKiCYBbKiEs6Iy3BA6niHgxBJI6tLBc/jvGQUHALhyD+ozwCjkDenZFEXRJjeGV1X7KtDkZbURfVshgMr2yXsKCcAtEfl1Csn9dWQEg1jFs039THgyZR+DEZdu5xSkPr4aqtuyTi5CLHe/pnfqyTwHc06A8NH2VJRJHDtVFcVswbm0jwaoTEoye0Yq/+XMc1EwiWDo2niNtzttlZA7NSEwcVLajkPnXscy+dDTiBZMEgsgT99tON5m0czAMJexVL6ycsl6YFMHHDcUYUQwOCbq8X4vGqg+X6oXRirPJgrzu5/xmXfBslW34iE8TPEps2934J6G6RzTs12uYXcIsiIy9k0p3Dc85eDlNgYWbsWjNJdXAVLbU6lJvlth3ajP1iAQHQAX0m0onvvn1N1t5BQPEwvQuECRqpsUIVbq7A==u+k8-----END PGP MESSAGE-----"
+        }
+    }
+}
