@@ -1,0 +1,152 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Decentralisable, pgp encrypted email for git.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Davemail</title>
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    
+    <div class="container">
+
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a id="navSignInButton" href="#" role="button">Sign In</a></li>
+          <li><a id="navSignUpButton" href="#" role="button">Sign Up</a></li>
+          <li><a href="#" role="button" style="display: none">Read</a></li>
+          <li><a href="#" role="button" style="display: none">Send</a></li>
+        </ul>
+        <h3 class="text-muted">Davemail</h3>
+      </div>
+
+      <div class="jumbotron nudge-mt-hg">
+        <h1>Welcome to Davemail</h1>
+        <p class="lead">Decentralisable, pgp encrypted email for git.</p>
+      </div>
+
+      <div id="signIn">
+
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            <h2 class="text-center nudge-mb-lg">Sign In</h2>
+            
+            <input type="text" id="signInUsername" class="form-control nudge-my" placeholder="Username">
+            <input type="password" id="signInPassword" class="form-control nudge-my" placeholder="Password">
+            <div class="row nudge-my">
+              <div class="col-sm-6 col-sm-offset-3">
+                <input type="submit" id="signInButton" class="btn btn-success btn-block" value="Sign In">
+                <p id="signingInLoader" class="text-center nudge-my" style="display:none;"><i class="fa fa-spinner fa-pulse"></i> Signing in <i class="fa fa-spinner fa-pulse"></i></p>
+              </div>
+            </div>
+            <div class="alert alert-info nudge-my-hg">
+              <h3 class="nudge-mt-zero">Developers</h3>
+              <p>The sign in button generates a PGP key pair on your local machine (see browser console).</p>
+            </div>
+            
+          </div>
+        </div>
+
+      </div><!-- #signIn -->
+
+      <div id="signUp" style="display:none;">
+
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            <h2 class="text-center nudge-mb-lg">Sign Up</h2>
+            
+            <input type="text" id="signUpUsername" class="form-control nudge-my" placeholder="Username">
+            <input type="password" id="signUpPassword" class="form-control nudge-my" placeholder="Password">
+            <div class="row nudge-my">
+              <div class="col-sm-6 col-sm-offset-3">
+                <input type="submit" id="signInButton" class="btn btn-primary btn-block" value="Sign Up">
+                <p id="signingInLoader" class="text-center nudge-my" style="display:none;"><i class="fa fa-spinner fa-pulse"></i> Signing up <i class="fa fa-spinner fa-pulse"></i></p>
+              </div>
+            </div>
+            <div class="alert alert-danger nudge-my-hg">
+              <h3 class="nudge-mt-zero">A warning about passwords</h3>
+              <p>If two users share the same password, they will be able to read each others emails. Please choose a very long and unique password.</p>
+            </div>
+            <div class="alert alert-info nudge-my-hg">
+              <h3 class="nudge-mt-zero">Developers</h3>
+              <p>The sign up button generates a PGP key pair on your local machine (see browser console) and adds the user's username and public PGP key to <code>davemail.json</code>. It should return an error if the username is already in the json file.</p>
+            </div>
+            
+          </div>
+        </div>
+
+      </div><!-- #signUp -->
+
+      <div class="footer">
+        <p>♥ from the Dave</p>
+      </div>
+    </div>
+    
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='https://www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/openpgp/dist/openpgp.min.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js scripts/openpgp.worker.min.js -->
+    <script src="/bower_components/openpgp/dist/openpgp.worker.min.js"></script>
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/plugins.js -->
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+    <!-- endbuild -->
+
+    <script type="text/javascript">
+      // Make jQuery available to local scripts.
+      (function(){
+        window.$ = $;
+        window.openpgp = openpgp;
+      })();
+    </script>
+    
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>

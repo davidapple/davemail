@@ -1,0 +1,25 @@
+{
+  "name": "davemail",
+  "private": false,
+  "dependencies": {
+    "bootstrap-sass": "~3.3.5",
+    "modernizr": "~2.8.1",
+    "nudge": "^1.2.3",
+    "font-awesome": "^4.5.0",
+    "openpgp": "^2.2.0",
+    "datatables": "^1.10.11"
+  },
+  "overrides": {
+    "bootstrap-sass": {
+      "main": [
+        "assets/stylesheets/_bootstrap.scss",
+        "assets/fonts/bootstrap/*",
+        "assets/javascripts/bootstrap.js"
+      ]
+    }
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
+}
