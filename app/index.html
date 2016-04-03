@@ -2,7 +2,7 @@
 <html class="no-js" lang="">
   <head>
     <meta charset="utf-8">
-    <meta name="description" content="Decentralisable, pgp encrypted email for git.">
+    <meta name="description" content="Decentralisable, RSA encrypted email for git.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Davemail</title>
 
@@ -11,6 +11,7 @@
 
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/datatables/media/css/jquery.dataTables.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -31,17 +32,17 @@
 
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a id="navSignInButton" href="#" role="button">Sign In</a></li>
           <li><a id="navSignUpButton" href="#" role="button">Sign Up</a></li>
-          <li><a href="#" role="button" style="display: none">Read</a></li>
-          <li><a href="#" role="button" style="display: none">Send</a></li>
+          <li class="active"><a id="navSignInButton" href="#" role="button">Sign In</a></li>
+          <li><a id="navMessagesButton" href="#" role="button" style="display: none">Messages</a></li>
+          <li><a id="navSignOutButton" href="#" role="button" style="display: none">Sign Out</a></li>
         </ul>
         <h3 class="text-muted">Davemail</h3>
       </div>
 
       <div class="jumbotron nudge-mt-hg">
-        <h1>Welcome to Davemail</h1>
-        <p class="lead">Decentralisable, pgp encrypted email for git.</p>
+        <h1>Davemail</h1>
+        <p class="lead">Decentralisable, RSA encrypted email for git.</p>
       </div>
 
       <div id="signIn">
@@ -50,7 +51,6 @@
           <div class="col-sm-6 col-sm-offset-3">
             <h2 class="text-center nudge-mb-lg">Sign In</h2>
             
-            <input type="text" id="signInUsername" class="form-control nudge-my" placeholder="Username">
             <input type="password" id="signInPassword" class="form-control nudge-my" placeholder="Password">
             <div class="row nudge-my">
               <div class="col-sm-6 col-sm-offset-3">
@@ -60,7 +60,7 @@
             </div>
             <div class="alert alert-info nudge-my-hg">
               <h3 class="nudge-mt-zero">Developers</h3>
-              <p>The sign in button generates a PGP key pair on your local machine (see browser console).</p>
+              <p>The sign in button generates a RSA key pair on your local machine (see browser console).</p>
             </div>
             
           </div>
@@ -88,7 +88,7 @@
             </div>
             <div class="alert alert-info nudge-my-hg">
               <h3 class="nudge-mt-zero">Developers</h3>
-              <p>The sign up button generates a PGP key pair on your local machine (see browser console) and adds the user's username and public PGP key to <code>davemail.json</code>. It should return an error if the username is already in the json file.</p>
+              <p>The sign up button generates a RSA key pair on your local machine (see browser console) and adds the user's username and public RSA key to <code>davemail.json</code>. It should return an error if the username is already in the json file.</p>
             </div>
             
           </div>
@@ -96,30 +96,26 @@
 
       </div><!-- #signUp -->
 
+      <div id="messages" style="display:none">
+
+        <h2>Hello <span id="usernameHeading">Anonymous</span></h2>
+
+        <table id="messagesTable"></table>
+
+      </div><!-- #messages -->
+
       <div class="footer">
         <p>♥ from the Dave</p>
       </div>
     </div>
-    
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='https://www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
-    </script>
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/openpgp/dist/openpgp.min.js"></script>
+    <script src="/bower_components/cryptico/cryptico.js"></script>
+    <script src="/bower_components/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="/bower_components/underscore/underscore.js"></script>
     <!-- endbower -->
-    <!-- endbuild -->
-
-    <!-- build:js scripts/openpgp.worker.min.js -->
-    <script src="/bower_components/openpgp/dist/openpgp.worker.min.js"></script>
     <!-- endbuild -->
     
     <!-- build:js scripts/plugins.js -->
@@ -141,7 +137,6 @@
       // Make jQuery available to local scripts.
       (function(){
         window.$ = $;
-        window.openpgp = openpgp;
       })();
     </script>
     

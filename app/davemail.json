@@ -1,0 +1,23 @@
+{
+    "davemail": {
+        "users": {
+            "guest": {
+                "publicKey": "seCjPjXROJRCvsdqbgvq9CKn/Lq+OlNP3i2TUZauzjLcytF6mvRkfHAv4y3tJl0WNdF6p7NJwEYv+3GwFSlZ8tGM7PPaghyjnR92yQA7DiFPux741VCPUndNAMESyApjvsr29Bktnoxclknr2sUj1sL01ZA5cwWE/l3E0+x7ZKkEWWMwBW0qbSLR5OG8K7AzoP7YQ08ES7tDut0T/TjgQt1LeNdxSie+CvDx/9gSrdfBvYpVzhozkNblXbk3axSB"
+            },
+            "davidapple": {
+                "publicKey": "i4J4GuwXAKHQygRiGpdcZ3JZZfcPDg/kOS9Gm28jc4taQfeVGmz/DHVB4XMUa73Uk0soooVl11dVMotKvLbVqFhjCFMlTV8tvSlLNbUXamM4s25iu3oQRakSA0acDijcywGicxUuIslCiXc4glRzk3MYy7hPMAspIKY+r0TMlR+nKa469zAY1hsyS1odUnSoXe7s5+wr8OBZywgDFyieZ6ZFXMiWdpLdbQYOKSr/ofxTr+qkDCh1Dygm+n5cWTED"
+            }
+        },
+        "emails": [
+            {
+                "time": "2016-04-03T17:52:24+00:00",
+                "cipher": "T83fb1lO/bHCRzn2AhT+M5dEjTEwttvS80Fab7a7xcUwolgtk3AnFUlDDRqZmafViynzGjNO5sVlyjM2eC4itdH7x+grEuI3hNlq+woBuvPpp/0NDbWb9xMsOSUGmMEX5B5ZjudOXu+1oDn+4xrtTPALEesx4sV+MHw18rJ881TevfMLEoEbe0NNU05QPViWAlAVjGXyI5oI89pxt9D37I+qWtBnQDYkfCbRARZWqGp9HXWz/hZ/iv355yRSvkQy?GfNVvTV1lprZa/vo6CwR65PdbcDLHQ23Ki+o+OkNkI0="
+            },
+            {
+                "time": "2016-04-03T17:52:24+00:00",
+                "cipher": "T83fb1lO/bHCRzn2AhT+M5dEjTEwttvS80Fab7a7xcUwolgtk3AnFUlDDRqZmafViynzGjNO5sVlyjM2eC4itdH7x+grEuI3hNlq+woBuvPpp/0NDbWb9xMsOSUGmMEX5B5ZjudOXu+1oDn+4xrtTPALEesx4sV+MHw18rJ881TevfMLEoEbe0NNU05QPViWAlAVjGXyI5oI89pxt9D37I+qWtBnQDYkfCbRARZWqGp9HXWz/hZ/iv355yRSvkQy?GfNVvTV1lprZa/vo6CwR65PdbcDLHQ23Ki+o+OkNkI0="
+            }
+        ]
+        
+    }
+}

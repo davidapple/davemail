@@ -6,8 +6,9 @@
     "modernizr": "~2.8.1",
     "nudge": "^1.2.3",
     "font-awesome": "^4.5.0",
-    "openpgp": "^2.2.0",
-    "datatables": "^1.10.11"
+    "datatables": "^1.10.11",
+    "underscore": "^1.8.3",
+    "cryptico": "git://github.com/wwwtyro/cryptico.git#9291ece634d37415e66396d749d38e612d66f935"
   },
   "overrides": {
     "bootstrap-sass": {

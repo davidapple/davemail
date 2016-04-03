@@ -1,10 +1,10 @@
 ## Davemail
 
-Decentralisable, pgp encrypted email for git.
+Decentralisable, RSA encrypted email for git.
 
 # The vision
-The file `davemail.json` contains all of the registered Davemail users (usernames and public PGP keys) and timestamped encrypted emails.
-The webapp should let people read and send emails easily without seeing anything to do with PGP encryption.
+The file `davemail.json` contains all of the registered Davemail users (usernames and public RSA keys) and timestamped encrypted emails.
+The webapp should let people read and send emails easily without seeing anything to do with RSA encryption.
 The webapp should add users and encrypted emails to `davemail.json`.
 I recommend that the webapp deletes emails older than six months in the background to keep the file size under control.
 
