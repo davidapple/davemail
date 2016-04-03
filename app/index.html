@@ -50,7 +50,6 @@
           <div class="col-sm-6 col-sm-offset-3">
             <h2 class="text-center nudge-mb-lg">Sign In</h2>
             
-            <input type="text" id="signInUsername" class="form-control nudge-my" placeholder="Username">
             <input type="password" id="signInPassword" class="form-control nudge-my" placeholder="Password">
             <div class="row nudge-my">
               <div class="col-sm-6 col-sm-offset-3">
@@ -114,12 +113,13 @@
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/underscore/underscore-min.js"></script>
     <script src="/bower_components/openpgp/dist/openpgp.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js scripts/openpgp.worker.min.js -->
-    <script src="/bower_components/openpgp/dist/openpgp.worker.min.js"></script>
+    <!-- <script src="/bower_components/openpgp/dist/openpgp.worker.min.js"></script> -->
     <!-- endbuild -->
     
     <!-- build:js scripts/plugins.js -->
@@ -138,9 +138,10 @@
     <!-- endbuild -->
 
     <script type="text/javascript">
-      // Make jQuery available to local scripts.
+      // Make venor js available to local scripts.
       (function(){
         window.$ = $;
+        window._ = _;
         window.openpgp = openpgp;
       })();
     </script>
