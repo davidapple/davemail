@@ -50,14 +50,17 @@
         <div class="row">
           <div class="col-sm-6 col-sm-offset-3">
             <h2 class="text-center nudge-mb-lg">Sign In</h2>
-            
-            <input type="password" id="signInPassword" class="form-control nudge-my" placeholder="Password">
-            <div class="row nudge-my">
-              <div class="col-sm-6 col-sm-offset-3">
-                <input type="submit" id="signInButton" class="btn btn-success btn-block" value="Sign In">
-                <p id="signingInLoader" class="text-center nudge-my" style="display:none;"><i class="fa fa-spinner fa-pulse"></i> Signing in <i class="fa fa-spinner fa-pulse"></i></p>
+
+            <form name="signInForm" onsubmit="event.preventDefault();">
+              <input type="password" id="signInPassword" class="form-control nudge-my" placeholder="Password">
+              <div class="row nudge-my">
+                <div class="col-sm-6 col-sm-offset-3">
+                  <input type="submit" id="signInButton" class="btn btn-success btn-block" value="Sign In">
+                  <p id="signingInLoader" class="text-center nudge-my" style="display:none;">Signing in <i class="fa fa-spinner fa-pulse"></i></p>
+                </div>
               </div>
-            </div>
+            </form>
+
             <div class="alert alert-info nudge-my-hg">
               <h3 class="nudge-mt-zero">Developers</h3>
               <p>The sign in button generates a RSA key pair on your local machine (see browser console).</p>
@@ -84,22 +87,24 @@
           <div class="col-sm-6">
             <h2 class="text-center nudge-mb-lg">Sign Up</h2>
             
-            <input type="text" id="signUpUsername" class="form-control nudge-my" placeholder="Username">
-            <input type="password" id="signUpPassword" class="form-control nudge-my" placeholder="Password">
+            <form name="signUpForm" onsubmit="event.preventDefault();">
+              <input type="text" id="signUpUsername" class="form-control nudge-my" placeholder="Username">
+              <input type="password" id="signUpPassword" class="form-control nudge-my" placeholder="Password">
 
-            <div id="passwordWarning" class="alert alert-danger" style="display:none;">
-              <h3 class="nudge-mt-zero">Password warning</h3>
-              <p>Your password is too weak.</p>
-              <p id="passwordWarningText"></p>
-              <div id="passwordSuggestionsText" class="nudge-mt-sm"></div>
-            </div>
-
-            <div class="row nudge-my">
-              <div class="col-sm-6 col-sm-offset-6">
-                <input type="submit" id="signUpButton" class="btn btn-success btn-block" value="Sign Up">
-                <p id="signingInLoader" class="text-center nudge-my" style="display:none;"><i class="fa fa-spinner fa-pulse"></i> Signing up <i class="fa fa-spinner fa-pulse"></i></p>
+              <div id="passwordWarning" class="alert alert-danger" style="display:none;">
+                <h3 class="nudge-mt-zero">Password warning</h3>
+                <p>Your password is too weak.</p>
+                <p id="passwordWarningText"></p>
+                <div id="passwordSuggestionsText" class="nudge-mt-sm"></div>
               </div>
-            </div>
+
+              <div class="row nudge-my">
+                <div class="col-sm-6 col-sm-offset-6">
+                  <input type="submit" id="signUpButton" class="btn btn-success btn-block" value="Sign Up">
+                  <p id="signingInLoader" class="text-center nudge-my" style="display:none;">Signing up <i class="fa fa-spinner fa-pulse"></i></p>
+                </div>
+              </div>
+            </form>
             
           </div>
         </div>
@@ -145,6 +150,7 @@
     <!-- endbuild -->
     
     <!-- build:js scripts/main.js -->
+    <script src="scripts/functions.js"></script>
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
   </body>
