@@ -1,16 +1,17 @@
 ## Davemail
 
-Decentralisable, RSA encrypted email for git.
+Decentralised, deterministic RSA encrypted, anonymous, offline email for git.
+
+# Mission statement
+
+Empowering you to take back your communication privacy.
 
 # The vision
-The file `davemail.json` contains all of the registered Davemail users (usernames and public RSA keys) and timestamped encrypted emails.
-The webapp should let people read and send emails easily without seeing anything to do with RSA encryption.
-The webapp should add users and encrypted emails to `davemail.json`.
-I recommend that the webapp deletes emails older than six months in the background to keep the file size under control.
 
-Once a user has read and sent (added encrypted email data to `davemail.json`), they can use git to add, commit and push to a git repository. Or the webapp could do this? Or the user could have a daemon running to do this?
-
-Multiple public git repositories can be used as Davemail nodes and it will become decentralised.
+`davemail.json` contains communications data (users and encypted emails).
+The webapp facilitates user creation, email creation and brute force decryption - all offline.
+The webapp updates `davemail.json`. Users can commit updates to this file to a shared git repsoitory.
+Git repository owners takes responsibility for reducing spam by preventing users from committing too many emails too frequently.
 
 ## Tech stuff
 Originally created using [Yeoman Webapp Generator](https://github.com/yeoman/generator-webapp).
