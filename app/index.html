@@ -11,7 +11,7 @@
 
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="/bower_components/datatables/media/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="/bower_components/datatables/media/css/dataTables.bootstrap.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -54,18 +54,25 @@
             <form name="signInForm" onsubmit="event.preventDefault();">
               <input type="password" id="signInPassword" class="form-control nudge-my" placeholder="Password">
               <div class="row nudge-my">
-                <div class="col-sm-6 col-sm-offset-3">
+                <div class="col-sm-6">
+                  <button id="signUpButtonOnSignIn" class="btn btn-default btn-block">Sign Up</button>
+                </div>
+                <div class="col-sm-6">
                   <input type="submit" id="signInButton" class="btn btn-success btn-block" value="Sign In">
                   <p id="signingInLoader" class="text-center nudge-my" style="display:none;">Signing in <i class="fa fa-spinner fa-pulse"></i></p>
                 </div>
               </div>
             </form>
+            
+          </div>
+        </div>
 
-            <div class="alert alert-info nudge-my-hg">
-              <h3 class="nudge-mt-zero">Developers</h3>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="alert nudge-my-hg">
+              <h3 class="nudge-mt-zero">Under the hood</h3>
               <p>The sign in button generates a RSA key pair on your local machine (see browser console).</p>
             </div>
-            
           </div>
         </div>
 
@@ -75,21 +82,32 @@
 
         <div class="row">
           <div class="col-sm-6">
-            <div class="alert alert-warning nudge-my-hg">
+            <div class="alert nudge-my-hg">
               <h3 class="nudge-mt-zero">Create a strong password</h3>
               <p>If two users share the same password, they will be able to read each others emails! Please choose a very long and unique password.</p>
             </div>
-            <div class="alert alert-info nudge-my-hg">
-              <h3 class="nudge-mt-zero">Developers</h3>
-              <p>The sign up button generates a RSA key pair on your local machine (see browser console) and adds the user's username and public RSA key to <code>davemail.json</code>. It should return an error if the username is already in the json file.</p>
+            <div class="alert nudge-my-hg">
+              <h3 class="nudge-mt-zero">Under the hood</h3>
+              <p>The sign up button generates a RSA key pair on your local machine (see browser console) and adds the user's username and public RSA key to <code>davemail.json</code>. This page returns an error if the username is already in the json file. The page uses <a href="https://github.com/dropbox/zxcvbn" target="_blank">zxcvbn</a>, preventing users from creating weak passwords.</p>
             </div>
           </div>
+
           <div class="col-sm-6">
             <h2 class="text-center nudge-mb-lg">Sign Up</h2>
             
             <form name="signUpForm" onsubmit="event.preventDefault();">
-              <input type="text" id="signUpUsername" class="form-control nudge-my" placeholder="Username">
+              <input type="text" id="signUpUsername" class="form-control nudge-my davemail-sign-up-username" placeholder="Username">
               <input type="password" id="signUpPassword" class="form-control nudge-my" placeholder="Password">
+
+              <div id="usernameTakenWarning" class="alert alert-danger nudge-my-hg" style="display:none;">
+                <h3 class="nudge-mt-zero">Usename taken</h3>
+                <p>Someone has already registered that username.</p>
+              </div>
+
+              <div id="usernameEmptyWarning" class="alert alert-danger nudge-my-hg" style="display:none;">
+                <h3 class="nudge-mt-zero">Username required</h3>
+                <p>Please enter a unique username.</p>
+              </div>
 
               <div id="passwordWarning" class="alert alert-danger" style="display:none;">
                 <h3 class="nudge-mt-zero">Password warning</h3>
@@ -101,7 +119,7 @@
               <div class="row nudge-my">
                 <div class="col-sm-6 col-sm-offset-6">
                   <input type="submit" id="signUpButton" class="btn btn-success btn-block" value="Sign Up">
-                  <p id="signingInLoader" class="text-center nudge-my" style="display:none;">Signing up <i class="fa fa-spinner fa-pulse"></i></p>
+                  <p id="signingUpLoader" class="text-center nudge-my" style="display:none;">Signing up <i class="fa fa-spinner fa-pulse"></i></p>
                 </div>
               </div>
             </form>
@@ -115,7 +133,7 @@
 
         <h2>Hello <span id="usernameHeading">Anonymous</span></h2>
 
-        <table id="messagesTable"></table>
+        <table id="messagesTable" class="table davemail-messages-table"></table>
 
       </div><!-- #messages -->
 
@@ -131,6 +149,7 @@
     <script src="/bower_components/cryptico/cryptico.js"></script>
     <script src="/bower_components/zxcvbn/dist/zxcvbn.js"></script>
     <script src="/bower_components/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="/bower_components/datatables/media/js/dataTables.bootstrap.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
     

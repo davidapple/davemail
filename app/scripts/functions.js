@@ -55,6 +55,7 @@ function signOut(davemail){
     davemail.messagesTable.destroy();
     davemail.messagesTable = $('#messagesTable').DataTable({
         data: [],
+        ordering: false,
         columns: [
             {title: "Time"},
             {title: "Message"}
@@ -66,5 +67,12 @@ function signOut(davemail){
     davemail.publicKey = undefined;
     davemail.privateKey = undefined;
     davemail.messages = undefined;
+    return davemail;
+}
+function generateKeyPair(davemail){
+    davemail.privateKey = cryptico.generateRSAKey(davemail.password, 1536);
+    davemail.publicKey = cryptico.publicKeyString(davemail.privateKey);
+    console.log(davemail.privateKey);
+    console.log(davemail.publicKey);
     return davemail;
 }

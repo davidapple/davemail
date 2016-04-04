@@ -30,9 +30,13 @@
         signOutPage(event);
         davemail = signOut(davemail);
     });
+    $('#signUpButtonOnSignIn').click(function(event){
+        signUpPage(event);
+    });
 
     davemail.messagesTable = $('#messagesTable').DataTable({
         data: [],
+        ordering: false,
         columns: [
             {title: "Time"},
             {title: "Message"}
@@ -47,13 +51,8 @@
         davemail.password = $('#signInPassword').val();
         davemail.passwordStrength = zxcvbn(davemail.password);
 
-        console.log('Generating RSA key pair...');
-
         setTimeout(function (){
-            davemail.privateKey = cryptico.generateRSAKey(davemail.password, 1536);
-            davemail.publicKey = cryptico.publicKeyString(davemail.privateKey);
-            console.log(davemail.privateKey);
-            console.log(davemail.publicKey);
+            davemail = generateKeyPair(davemail);
 
             _.map(davemail.jsonData.responseJSON.davemail.users, function(num, key){
                 if(davemail.publicKey == num.publicKey){
@@ -80,6 +79,7 @@
                 davemail.messagesTable.destroy();
                 davemail.messagesTable = $('#messagesTable').DataTable({
                     data: davemail.messages,
+                    ordering: false,
                     columns: [
                         {title: "Time"},
                         {title: "Message"}
@@ -93,23 +93,49 @@
 
     $('#signUpButton').click(function(){
 
+        $('#signUpUsername').val($('#signUpUsername').val().toLowerCase());
+        davemail.username = $('#signUpUsername').val();
         davemail.password = $('#signUpPassword').val();
         davemail.passwordStrength = zxcvbn(davemail.password);
 
-        if(davemail.passwordStrength.score > 3){
-            $('#passwordWarning').hide();
-            console.log('SUCCESS');
-        }else{
-            $('#passwordWarning').show();
-            $('#passwordWarningText').text(davemail.passwordStrength.feedback.warning);
-            var passwordSuggestions = $('#passwordSuggestionsText');
-            passwordSuggestions.children().remove();
-            $.each(davemail.passwordStrength.feedback.suggestions, function(i){
-                var p = $('<p/>')
-                    .appendTo(passwordSuggestions)
-                    .text(davemail.passwordStrength.feedback.suggestions[i])
-                    .appendTo(p);
+        $('#usernameTakenWarning').hide();
+        $('#passwordWarning').hide();
+
+        if(davemail.username.length > 0){
+            $('#usernameEmptyWarning').hide();
+
+            var usernameUnique = _.map(davemail.jsonData.responseJSON.davemail.users, function(num, key){
+                if(davemail.username == key.toLowerCase()){
+                    $('#usernameTakenWarning').show();
+                    return false;
+                }else{
+                    return true;
+                }
             });
+
+            if(usernameUnique && davemail.passwordStrength.score > 3){
+                $('#passwordWarning').hide();
+                $('#signUpButton').hide();
+                $('#signingUpLoader').show();
+
+                setTimeout(function (){
+                    davemail = generateKeyPair(davemail);
+                }, 100);
+                
+            }else{
+                $('#passwordWarning').show();
+                $('#passwordWarningText').text(davemail.passwordStrength.feedback.warning);
+                var passwordSuggestions = $('#passwordSuggestionsText');
+                passwordSuggestions.children().remove();
+                $.each(davemail.passwordStrength.feedback.suggestions, function(i){
+                    var p = $('<p/>')
+                        .appendTo(passwordSuggestions)
+                        .text(davemail.passwordStrength.feedback.suggestions[i])
+                        .appendTo(p);
+                });
+            }
+        }else{
+            $('#usernameEmptyWarning').show();
         }
     });
 
