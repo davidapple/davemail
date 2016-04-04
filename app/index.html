@@ -40,7 +40,7 @@
         <h3 class="text-muted">Davemail</h3>
       </div>
 
-      <div class="jumbotron nudge-mt-hg">
+      <div class="jumbotron nudge-mt-hg nudge-p-sm">
         <h1>Davemail</h1>
         <p class="lead">Decentralisable, RSA encrypted email for git.</p>
       </div>
@@ -71,24 +71,34 @@
       <div id="signUp" style="display:none;">
 
         <div class="row">
-          <div class="col-sm-6 col-sm-offset-3">
-            <h2 class="text-center nudge-mb-lg">Sign Up</h2>
-            
-            <input type="text" id="signUpUsername" class="form-control nudge-my" placeholder="Username">
-            <input type="password" id="signUpPassword" class="form-control nudge-my" placeholder="Password">
-            <div class="row nudge-my">
-              <div class="col-sm-6 col-sm-offset-3">
-                <input type="submit" id="signInButton" class="btn btn-primary btn-block" value="Sign Up">
-                <p id="signingInLoader" class="text-center nudge-my" style="display:none;"><i class="fa fa-spinner fa-pulse"></i> Signing up <i class="fa fa-spinner fa-pulse"></i></p>
-              </div>
-            </div>
-            <div class="alert alert-danger nudge-my-hg">
-              <h3 class="nudge-mt-zero">A warning about passwords</h3>
-              <p>If two users share the same password, they will be able to read each others emails. Please choose a very long and unique password.</p>
+          <div class="col-sm-6">
+            <div class="alert alert-warning nudge-my-hg">
+              <h3 class="nudge-mt-zero">Create a strong password</h3>
+              <p>If two users share the same password, they will be able to read each others emails! Please choose a very long and unique password.</p>
             </div>
             <div class="alert alert-info nudge-my-hg">
               <h3 class="nudge-mt-zero">Developers</h3>
               <p>The sign up button generates a RSA key pair on your local machine (see browser console) and adds the user's username and public RSA key to <code>davemail.json</code>. It should return an error if the username is already in the json file.</p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <h2 class="text-center nudge-mb-lg">Sign Up</h2>
+            
+            <input type="text" id="signUpUsername" class="form-control nudge-my" placeholder="Username">
+            <input type="password" id="signUpPassword" class="form-control nudge-my" placeholder="Password">
+
+            <div id="passwordWarning" class="alert alert-danger" style="display:none;">
+              <h3 class="nudge-mt-zero">Password warning</h3>
+              <p>Your password is too weak.</p>
+              <p id="passwordWarningText"></p>
+              <div id="passwordSuggestionsText" class="nudge-mt-sm"></div>
+            </div>
+
+            <div class="row nudge-my">
+              <div class="col-sm-6 col-sm-offset-6">
+                <input type="submit" id="signUpButton" class="btn btn-success btn-block" value="Sign Up">
+                <p id="signingInLoader" class="text-center nudge-my" style="display:none;"><i class="fa fa-spinner fa-pulse"></i> Signing up <i class="fa fa-spinner fa-pulse"></i></p>
+              </div>
             </div>
             
           </div>
@@ -112,9 +122,10 @@
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/cryptico/cryptico.js"></script>
-    <script src="/bower_components/datatables/media/js/jquery.dataTables.js"></script>
     <script src="/bower_components/underscore/underscore.js"></script>
+    <script src="/bower_components/cryptico/cryptico.js"></script>
+    <script src="/bower_components/zxcvbn/dist/zxcvbn.js"></script>
+    <script src="/bower_components/datatables/media/js/jquery.dataTables.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
     
@@ -132,13 +143,6 @@
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
     <!-- endbuild -->
-
-    <script type="text/javascript">
-      // Make jQuery available to local scripts.
-      (function(){
-        window.$ = $;
-      })();
-    </script>
     
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>

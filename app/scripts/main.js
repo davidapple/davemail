@@ -2,8 +2,7 @@
 
 (function(){
 
-    var $ = window.$;
-
+    window.zxcvbn = zxcvbn;
     window.davemail = new Object();
     davemail.info = 'Davemail 0.0.1 by David Apple https://github.com/davidapple/davemail Donate Bitcoin to 13D3A8PP91MLF5VTBQMH5HG76F42RNRF28';
 
@@ -120,14 +119,14 @@
             messagesPage();
 
             davemail.messages = _.map(davemail.jsonData.responseJSON.davemail.emails, function(num, key){
-                return [ key, num.cipher ];
+                return [ num.time, num.cipher ];
             });
 
             $(document).ready(function() {
                 $('#messagesTable').DataTable( {
                     data: davemail.messages,
                     columns: [
-                        {title: "ID"},
+                        {title: "Time"},
                         {title: "Message"}
                     ]
                 });
@@ -135,6 +134,28 @@
 
         }, 1000);
 
+    });
+
+    $('#signUpButton').click(function(){
+
+        davemail.password = $('#signUpPassword').val();
+        davemail.passwordStrength = zxcvbn(davemail.password);
+
+        if(davemail.passwordStrength.score > 3){
+            $('#passwordWarning').hide();
+            console.log('SUCCESS');
+        }else{
+            $('#passwordWarning').show();
+            $('#passwordWarningText').text(davemail.passwordStrength.feedback.warning);
+            var passwordSuggestions = $('#passwordSuggestionsText');
+            passwordSuggestions.children().remove();
+            $.each(davemail.passwordStrength.feedback.suggestions, function(i){
+                var p = $('<p/>')
+                    .appendTo(passwordSuggestions)
+                    .text(davemail.passwordStrength.feedback.suggestions[i])
+                    .appendTo(p);
+            });
+        }
     });
 
 })();
