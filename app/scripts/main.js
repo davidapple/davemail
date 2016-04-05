@@ -87,7 +87,7 @@
                 });
             }
 
-        }, 100);
+        }, 10);
 
     });
 
@@ -122,11 +122,16 @@
                     davemail = generateKeyPair(davemail);
 
                     // Regenerate users json
-                    var users = _.map(davemail.jsonData.responseJSON.davemail.users, function(num, key){
-                        return [key, num];
-                    });
-                    users.push([davemail.username, { 'publicKey': davemail.publicKey }]);
-                    console.log(users);
+                    var users = davemail.jsonData.responseJSON.davemail.users;
+                    var emails = davemail.jsonData.responseJSON.davemail.emails;
+                    users[davemail.username] = {'publicKey': davemail.publicKey}; // Add user to users
+
+                    davemail.jsonData.responseJSON = {'davemail': {'emails': emails, 'users': users}}; // Replace local json
+                    $('#signUpJson').text(JSON.stringify(davemail.jsonData.responseJSON, null, 4));
+
+                    var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(davemail.jsonData.responseJSON, null, 4));
+
+                    $('<p>You need to overwrite your davemail.json file. You can <a href="data:' + data + '" download="davemail.json">right click here and select "save as&hellip;"</a> or copy the text below and replace it in a text editor.</p>').appendTo('#signUpDownload');
 
                 }, 100);
                 
