@@ -16,6 +16,8 @@ The webapp updates `davemail.json`. Users can commit updates to this file to a s
 
 Git repository owners takes responsibility for reducing spam by preventing users from committing too many emails too frequently.
 
+Anonymity can be achieved within a git repository through sharing SSH keys. And communities can be managed by davemailing new git SSH keys to trusted users at regular intevals.
+
 ## Development
 Originally created using [Yeoman Webapp Generator](https://github.com/yeoman/generator-webapp).
 
