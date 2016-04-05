@@ -120,6 +120,14 @@
 
                 setTimeout(function (){
                     davemail = generateKeyPair(davemail);
+
+                    // Regenerate users json
+                    var users = _.map(davemail.jsonData.responseJSON.davemail.users, function(num, key){
+                        return [key, num];
+                    });
+                    users.push([davemail.username, { 'publicKey': davemail.publicKey }]);
+                    console.log(users);
+
                 }, 100);
                 
             }else{
