@@ -124,9 +124,10 @@
                     // Regenerate users json
                     var users = davemail.jsonData.responseJSON.davemail.users;
                     var emails = davemail.jsonData.responseJSON.davemail.emails;
+                    var servers = davemail.jsonData.responseJSON.davemail.servers;
                     users[davemail.username] = {'publicKey': davemail.publicKey}; // Add user to users
 
-                    davemail.jsonData.responseJSON = {'davemail': {'emails': emails, 'users': users}}; // Replace local json
+                    davemail.jsonData.responseJSON = {'davemail': {'users': users, 'emails': emails, 'servers': servers}}; // Replace local json
                     $('#signUpJson').text(JSON.stringify(davemail.jsonData.responseJSON, null, 4));
 
                     var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(davemail.jsonData.responseJSON, null, 4));

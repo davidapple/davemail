@@ -27,23 +27,44 @@
     <!--[if lt IE 10]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    
-    <div class="container">
 
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li><a id="navSignUpButton" href="#" role="button">Sign Up</a></li>
-          <li class="active"><a id="navSignInButton" href="#" role="button">Sign In</a></li>
-          <li><a id="navMessagesButton" href="#" role="button" style="display: none">Messages</a></li>
-          <li><a id="navSignOutButton" href="#" role="button" style="display: none">Sign Out</a></li>
-        </ul>
-        <h3 class="text-muted">Davemail</h3>
+    <nav class="navbar navbar-inverse nudge-m-zero nudge-b-zero nudge-r-zero">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand nudge-my-zero" href="#"><img src="images/davemail.png" class="nudge-m-zero nudge-mr inline-block" height="18"> Davemail</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a id="navSignUpButton" href="#">Sign Up</a></li>
+            <li class="active"><a id="navSignInButton" href="#">Sign In</a></li>
+            <li><a id="navMessagesButton" href="#" style="display: none">Messages</a></li>
+            <li><a id="navSignOutButton" href="#" style="display: none">Sign Out</a></li>
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog"></i> <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Git servers</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
       </div>
+    </nav>
 
-      <div class="jumbotron nudge-mt-hg nudge-p-sm">
+    <div class="jumbotron tailor-paisley nudge-mt-zero nudge-p-sm">
+      <div class="container">
         <h1>Davemail</h1>
-        <p class="lead">Decentralisable, RSA encrypted email for git.</p>
+        <p class="lead">Decentralised, deterministic RSA encrypted, anonymous, offline email for git.</p>
       </div>
+    </div>
+
+    <div class="container">
 
       <div id="signIn">
 
@@ -58,7 +79,7 @@
                   <a id="signUpButtonOnSignIn" class="btn btn-default btn-block">Sign Up</a>
                 </div>
                 <div class="col-sm-6">
-                  <input type="submit" id="signInButton" class="btn btn-success btn-block" value="Sign In">
+                  <input type="submit" id="signInButton" class="btn btn-primary btn-block tailor-paisley" value="Sign In">
                   <p id="signingInLoader" class="text-center nudge-my" style="display:none;">Signing in <i class="fa fa-spinner fa-pulse"></i></p>
                 </div>
               </div>
@@ -118,17 +139,15 @@
 
               <div class="row nudge-my">
                 <div class="col-sm-6 col-sm-offset-6">
-                  <input type="submit" id="signUpButton" class="btn btn-success btn-block" value="Sign Up">
+                  <input type="submit" id="signUpButton" class="btn btn-primary btn-block tailor-paisley" value="Sign Up">
                   <p id="signingUpLoader" class="text-center nudge-my" style="display:none;">Signing up <i class="fa fa-spinner fa-pulse"></i></p>
                 </div>
               </div>
             </form>
 
-            <hr>
-
             <div id="signUpDownload"></div>
 
-            <textarea id="signUpJson" class="form-control nudge-t-sm"></textarea>
+            <textarea id="signUpJson" class="form-control nudge-t-sm hide"></textarea>
             
           </div>
         </div>
@@ -144,7 +163,8 @@
       </div><!-- #messages -->
 
       <div class="footer">
-        <p>♥ from the Dave</p>
+        <img src="images/davemail.png" class="nudge-m-zero nudge-mr inline-block" height="36">
+        <p><i class="fa fa-heart"></i> from the Dave</p>
       </div>
     </div>
 

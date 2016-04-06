@@ -34,6 +34,7 @@ function messagesPage(event){
     $('#navSignOutButton').show();
     $('#navSignInButton').hide();
     $('#navSignUpButton').hide();
+    $('.jumbotron').hide();
 }
 function signOutPage(event){
     if(_.isObject(event)){
@@ -50,6 +51,7 @@ function signOutPage(event){
     $('#navSignInButton').show();
     $('#navSignUpButton').show();
     $('#navSignOutButton').hide();
+    $('.jumbotron').show();
 }
 function signOut(davemail){
     davemail.messagesTable.destroy();

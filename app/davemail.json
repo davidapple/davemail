@@ -1,5 +1,13 @@
 {
     "davemail": {
+        "servers": [
+            {
+                "ssh": "git@github.com:davidapple/davemail.git",
+                "username": "anonymous",
+                "password": "example",
+                "key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCB007n/ww+ouN4gSLKssMxXnBOvf9LGt4LojG6rs6hPB09j9R/T17/x4lhJA0F3FR1rP6kYBRsWj2aThGw6HXLm9/5zytK6Ztg3RPKK+4kYjh6541NYsnEAZuXz0jTTyAUfrtU3Z5E003C4oxOj6H0rfIF1kKI9MAQLMdpGW1GYEIgS9EzSdfd8AcCIicTDWbqLAcU4UpkaX8KyGlLwsNuuGztobF8m72ALC/nLF6JLtPofwFBlgc+myivO7TCUSBdLQlgMVOFq1I2uPWQOkOWQAHukEOmfjy2jctxSDBQ220ymjaNsHT4kgtZg2AYYgPqdAv8JggJICUvax2T9va5 gsg-keypair"
+            }
+        ],
         "users": {
             "guest": {
                 "publicKey": "seCjPjXROJRCvsdqbgvq9CKn/Lq+OlNP3i2TUZauzjLcytF6mvRkfHAv4y3tJl0WNdF6p7NJwEYv+3GwFSlZ8tGM7PPaghyjnR92yQA7DiFPux741VCPUndNAMESyApjvsr29Bktnoxclknr2sUj1sL01ZA5cwWE/l3E0+x7ZKkEWWMwBW0qbSLR5OG8K7AzoP7YQ08ES7tDut0T/TjgQt1LeNdxSie+CvDx/9gSrdfBvYpVzhozkNblXbk3axSB"
@@ -14,8 +22,8 @@
                 "cipher": "T83fb1lO/bHCRzn2AhT+M5dEjTEwttvS80Fab7a7xcUwolgtk3AnFUlDDRqZmafViynzGjNO5sVlyjM2eC4itdH7x+grEuI3hNlq+woBuvPpp/0NDbWb9xMsOSUGmMEX5B5ZjudOXu+1oDn+4xrtTPALEesx4sV+MHw18rJ881TevfMLEoEbe0NNU05QPViWAlAVjGXyI5oI89pxt9D37I+qWtBnQDYkfCbRARZWqGp9HXWz/hZ/iv355yRSvkQy?GfNVvTV1lprZa/vo6CwR65PdbcDLHQ23Ki+o+OkNkI0="
             },
             {
-                "time": "2016-04-04T11:48:31+00:00",
-                "cipher": "CZF2ewrQj7QcgNHfwJfsIO56K0yxiOQU6JFwPzYzPoW2ZnQYcn39McIDElZvcFGQdLtwJCYjp5Zr47bKLIVTH6Me1PyzTKv5CPBl2IWOJcUdZqsihXjN0DuYj5WHgAybQPQcOKU4uzq1Tv1Z3TwEXJ2Cp/wXJyLuFj9zY6PG6Q3k9m+LQGj8GmPpMrZTViaOwZS9exnOgzATk4rtNVs8dN0y9wtvxSlZfExXwLMav+/7WxkdTw0j2HAGIV/8OKMi?7YCGkmluM9luJET+qybPibstSxtqPMqixEfTwD5PLzMep5//dRaElt5uVUmhxA8PV1synU7eiFEwMlLt8cbqDevWQA5VthnmVgP0MJspamcBTNLCfhU4rRgfgER6ztS+4TrTNuU+DwdtNGSVqz0fQWSLpXdUL9l2PQHib6FOuBPc2pgLXplcXHMq2GZ38bUUTevPlzxS9lk9qTB+M7R983hpsDc8tslCCxwlue2/hmAZ2ShkmLqQhwQyk3vZ/ZrHN/0JFJBlZeUBDi9vRzd2TNwR/q4Q1J/aURNn3YstMFGPHpJSXs9w5tkotxgean66ECWL6dfmkNTQRHqH040UtxdTFYplEfu1lzBISzdG4rNeP/kUEka8l72JQoOpFXy1fHZuqK+Cca3x3wLTg08nFU4uS7d2TsQpvjIRkTY0OsCOyCurP0Cd1Csj7KhSzg8W82qt5WYDEhPASYlD10w3t5si5FAZOMcq8b73jLi/fwrO465+7cV4NKm8JrBxLAMuJbYVh+btowAKgL+6pECRrbYOzrr55Rsw8iXT30h0ZEE3MvYgtbFxj399vK+xFfu9ewD3E1g1vgDfEe7Rl64dVx+56FCEaA6G/vZlIBQuyDY="
+                "time": "2016-04-03T17:52:24+00:00",
+                "cipher": "T83fb1lO/bHCRzn2AhT+M5dEjTEwttvS80Fab7a7xcUwolgtk3AnFUlDDRqZmafViynzGjNO5sVlyjM2eC4itdH7x+grEuI3hNlq+woBuvPpp/0NDbWb9xMsOSUGmMEX5B5ZjudOXu+1oDn+4xrtTPALEesx4sV+MHw18rJ881TevfMLEoEbe0NNU05QPViWAlAVjGXyI5oI89pxt9D37I+qWtBnQDYkfCbRARZWqGp9HXWz/hZ/iv355yRSvkQy?GfNVvTV1lprZa/vo6CwR65PdbcDLHQ23Ki+o+OkNkI0="
             }
         ]
     }
