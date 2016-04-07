@@ -57,13 +57,13 @@
       </div>
     </nav>
 
-    <div class="jumbotron tailor-paisley nudge-mt-zero nudge-p-sm">
+    <div class="jumbotron tailor-paisley nudge-m-zero nudge-p-zero">
       <div class="container">
         <div class="row">
-          <div class="col-sm-3">
-            <img src="images/davemail.png" class="nudge-my-lg nudge-mr img-responsive hidden-xs">
+          <div class="col-sm-5">
+            <img src="images/davemail.png" class="nudge-m-zero img-responsive hidden-xs">
           </div>
-          <div class="col-sm-9">
+          <div class="col-sm-7">
             <h1 class="nudge-mt-lg nudge-h-hg">Davemail</h1>
             <p>Decentralised, deterministic RSA encrypted, anonymous, offline email for git.</p>
           </div>
@@ -72,6 +72,28 @@
     </div>
 
     <div class="container">
+
+      <div id="importDavemail" style="display:none;">
+
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            <h2 class="text-center nudge-mb-lg">Upload file</h2>
+            <p class="text-center">You need to upload your <i>davemail.json</i> file.</p>
+
+            <form name="importDavemailForm" onsubmit="event.preventDefault();">
+              <input type="file" id="importDavemailFile" class="nudge-my-hg">
+              <div class="row nudge-my">
+                <div class="col-sm-6 col-sm-offset-6">
+                  <input type="submit" id="importDavemailButton" class="btn btn-primary btn-block tailor-paisley" value="Upload">
+                  <p id="importingLoader" class="text-center nudge-my" style="display:none;">Importing file <i class="fa fa-spinner fa-pulse"></i></p>
+                </div>
+              </div>
+            </form>
+            
+          </div>
+        </div>
+
+      </div><!-- #importDavemail -->
 
       <div id="signIn">
 
@@ -200,7 +222,8 @@
       </div><!-- #messages -->
 
       <div class="footer">
-        <p class="nudge-t-md-xs"><a href="https://github.com/davidapple/davemail" target="_blank"><i class="fa fa-github"></i> view on Github</a>.</p>
+        <p class="nudge-t-md-xs nudge-my-sm"><i class="fa fa-bitcoin"></i> Donate bitcoin to 13D3A8PP91MLF5VTBQMH5HG76F42RNRF28</p>
+        <p class="nudge-t-md-xs nudge-my-sm"><a href="https://github.com/davidapple/davemail" target="_blank"><i class="fa fa-github"></i> view on Github</a>.</p>
       </div>
     </div>
 
@@ -231,7 +254,6 @@
     <!-- endbuild -->
     
     <!-- build:js scripts/main.js -->
-    <script src="scripts/functions.js"></script>
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
   </body>
