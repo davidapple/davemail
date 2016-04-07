@@ -59,8 +59,15 @@
 
     <div class="jumbotron tailor-paisley nudge-mt-zero nudge-p-sm">
       <div class="container">
-        <h1>Davemail</h1>
-        <p class="lead">Decentralised, deterministic RSA encrypted, anonymous, offline email for git.</p>
+        <div class="row">
+          <div class="col-sm-3">
+            <img src="images/davemail.png" class="nudge-my-lg nudge-mr img-responsive hidden-xs">
+          </div>
+          <div class="col-sm-9">
+            <h1 class="nudge-mt-lg nudge-h-hg">Davemail</h1>
+            <p>Decentralised, deterministic RSA encrypted, anonymous, offline email for git.</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -107,13 +114,10 @@
               <h3 class="nudge-mt-zero">Create a strong password</h3>
               <p>If two users share the same password, they will be able to read each others emails! Please choose a very long and unique password.</p>
             </div>
-            <div class="alert nudge-my-hg">
-              <h3 class="nudge-mt-zero">Under the hood</h3>
-              <p>The sign up button generates a RSA key pair on your local machine (see browser console) and adds the user's username and public RSA key to <code>davemail.json</code>. This page returns an error if the username is already in the json file. The page uses <a href="https://github.com/dropbox/zxcvbn" target="_blank">zxcvbn</a>, preventing users from creating weak passwords.</p>
-            </div>
           </div>
 
           <div class="col-sm-6">
+
             <h2 class="text-center nudge-mb-lg">Sign Up</h2>
             
             <form name="signUpForm" onsubmit="event.preventDefault();">
@@ -144,15 +148,48 @@
                 </div>
               </div>
             </form>
-
-            <div id="signUpDownload"></div>
-
-            <textarea id="signUpJson" class="form-control nudge-t-sm hide"></textarea>
             
           </div>
         </div>
 
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="alert nudge-my-hg">
+              <h3 class="nudge-mt-zero">Under the hood</h3>
+              <p>The sign up button generates a RSA key pair on your local machine (see browser console) and adds the user's username and public RSA key to <code>davemail.json</code>. This page returns an error if the username is already in the json file. The page uses <a href="https://github.com/dropbox/zxcvbn" target="_blank">zxcvbn</a>, preventing users from creating weak passwords.</p>
+            </div>
+          </div>
+        </div>
+
       </div><!-- #signUp -->
+
+      <div id="signUpReplace" style="display:none">
+
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            <h2 class="text-center mudge-mb-lg">Replace file</h2>
+            <p class="text-center">You need to overwrite your <i>davemail.json</i> file.</p>
+            <p class="text-center nudge-my-hg"><span id="signUpDownload"></span> and select Save as&hellip; <i class="fa fa-mouse-pointer"></i></p>
+            <p class="nudge-my-hg">Then replace the existing <i>davemail.json</i> file with this new one. This new file contains your new account.</p>
+
+            <textarea id="signUpJson" class="form-control nudge-t-sm hide"></textarea>
+
+            <div class="row">
+              <div class="col-sm-6 col-sm-offset-6">
+                <p><a id="fileReplacedButton" class="btn btn-primary btn-block tailor-paisley" href="#">Done</a></p>
+                <p id="fileReplacedLoader" class="text-center nudge-my" style="display:none;">Checking file <i class="fa fa-spinner fa-pulse"></i></p>
+              </div>
+            </div>
+
+            <div id="fileNotReplacedWarning" class="alert alert-danger nudge-mt-sm" style="display:none;">
+              <h3 class="nudge-mt-zero">File not replaced</h3>
+              <p>You haven't replaced the file <i>davemail.json</i>. Please do this first and then click the <i>Done</i> button.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div><!-- #signUpReplace -->
 
       <div id="messages" style="display:none">
 
@@ -163,8 +200,7 @@
       </div><!-- #messages -->
 
       <div class="footer">
-        <img src="images/davemail.png" class="nudge-m-zero nudge-mr inline-block" height="36">
-        <p><i class="fa fa-heart"></i> from the Dave</p>
+        <p class="nudge-t-md-xs"><a href="https://github.com/davidapple/davemail" target="_blank"><i class="fa fa-github"></i> view on Github</a>.</p>
       </div>
     </div>
 

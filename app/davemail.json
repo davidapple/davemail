@@ -1,19 +1,17 @@
 {
     "davemail": {
-        "servers": [
-            {
-                "ssh": "git@github.com:davidapple/davemail.git",
-                "username": "anonymous",
-                "password": "example",
-                "key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCB007n/ww+ouN4gSLKssMxXnBOvf9LGt4LojG6rs6hPB09j9R/T17/x4lhJA0F3FR1rP6kYBRsWj2aThGw6HXLm9/5zytK6Ztg3RPKK+4kYjh6541NYsnEAZuXz0jTTyAUfrtU3Z5E003C4oxOj6H0rfIF1kKI9MAQLMdpGW1GYEIgS9EzSdfd8AcCIicTDWbqLAcU4UpkaX8KyGlLwsNuuGztobF8m72ALC/nLF6JLtPofwFBlgc+myivO7TCUSBdLQlgMVOFq1I2uPWQOkOWQAHukEOmfjy2jctxSDBQ220ymjaNsHT4kgtZg2AYYgPqdAv8JggJICUvax2T9va5 gsg-keypair"
-            }
-        ],
         "users": {
             "guest": {
                 "publicKey": "seCjPjXROJRCvsdqbgvq9CKn/Lq+OlNP3i2TUZauzjLcytF6mvRkfHAv4y3tJl0WNdF6p7NJwEYv+3GwFSlZ8tGM7PPaghyjnR92yQA7DiFPux741VCPUndNAMESyApjvsr29Bktnoxclknr2sUj1sL01ZA5cwWE/l3E0+x7ZKkEWWMwBW0qbSLR5OG8K7AzoP7YQ08ES7tDut0T/TjgQt1LeNdxSie+CvDx/9gSrdfBvYpVzhozkNblXbk3axSB"
             },
             "davidapple": {
                 "publicKey": "i4J4GuwXAKHQygRiGpdcZ3JZZfcPDg/kOS9Gm28jc4taQfeVGmz/DHVB4XMUa73Uk0soooVl11dVMotKvLbVqFhjCFMlTV8tvSlLNbUXamM4s25iu3oQRakSA0acDijcywGicxUuIslCiXc4glRzk3MYy7hPMAspIKY+r0TMlR+nKa469zAY1hsyS1odUnSoXe7s5+wr8OBZywgDFyieZ6ZFXMiWdpLdbQYOKSr/ofxTr+qkDCh1Dygm+n5cWTED"
+            },
+            "test": {
+                "publicKey": "o9OE+FmgxR8inOGwAKSC7DeBc4OhLZfz8wu++wmbHP1qAusqFN+6lNEXSnofVblYM8mT9FbGKvATJxoI6W6KaWDF1qpSlUE+eZZioemrtQBlmwjZFvWMoTS76hw4TiKxkrowNP/bPTrHj+Qs/AqnfuRd8tbKA5zMOxwtS+7BdkfqVR7eye5FFlK2lFJhKM5gBwtk+d0YlTBurQlHMVOq+mAdwdCKvt+sf0NxTjZcUiuG5noVAtjq06ZNg+DyLKVR"
+            },
+            "tinyi": {
+                "publicKey": "nQOZN7PF0Qr5to0xpF6iWGGRU0Yqm4S/0OZVjkx4dldg6+XlxzeJNYQheTh/CTaqiRzVxyUCEekcsVxabGtx9K6xEIVRFP2okGOXYu7zJMKQHf25hW4nWLS/34DJRTibxkq1VzgJ6nlVMwOdUjr0sgqK6vI3X7iEyBKe76I0m610Y2q9hvxNOg+MBQ64dJjdx2wCF9LitxGXy1DaQCa420RE86sHwK9yMrH3mNVRqGmVRX5KkeS2QhHdXwoe4bxV"
             }
         },
         "emails": [
@@ -24,6 +22,14 @@
             {
                 "time": "2016-04-03T17:52:24+00:00",
                 "cipher": "T83fb1lO/bHCRzn2AhT+M5dEjTEwttvS80Fab7a7xcUwolgtk3AnFUlDDRqZmafViynzGjNO5sVlyjM2eC4itdH7x+grEuI3hNlq+woBuvPpp/0NDbWb9xMsOSUGmMEX5B5ZjudOXu+1oDn+4xrtTPALEesx4sV+MHw18rJ881TevfMLEoEbe0NNU05QPViWAlAVjGXyI5oI89pxt9D37I+qWtBnQDYkfCbRARZWqGp9HXWz/hZ/iv355yRSvkQy?GfNVvTV1lprZa/vo6CwR65PdbcDLHQ23Ki+o+OkNkI0="
+            }
+        ],
+        "servers": [
+            {
+                "ssh": "git@github.com:davidapple/davemail.git",
+                "username": "anonymous",
+                "password": "example",
+                "key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCB007n/ww+ouN4gSLKssMxXnBOvf9LGt4LojG6rs6hPB09j9R/T17/x4lhJA0F3FR1rP6kYBRsWj2aThGw6HXLm9/5zytK6Ztg3RPKK+4kYjh6541NYsnEAZuXz0jTTyAUfrtU3Z5E003C4oxOj6H0rfIF1kKI9MAQLMdpGW1GYEIgS9EzSdfd8AcCIicTDWbqLAcU4UpkaX8KyGlLwsNuuGztobF8m72ALC/nLF6JLtPofwFBlgc+myivO7TCUSBdLQlgMVOFq1I2uPWQOkOWQAHukEOmfjy2jctxSDBQ220ymjaNsHT4kgtZg2AYYgPqdAv8JggJICUvax2T9va5 gsg-keypair"
             }
         ]
     }
