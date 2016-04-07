@@ -1,5 +1,7 @@
 # Davemail
 
+<img src="https://raw.githubusercontent.com/davidapple/davemail/master/app/images/davemail.png" height="200">
+
 Decentralised, deterministic RSA encrypted, anonymous, offline email for git. Using the git [distributed version control](https://en.wikipedia.org/wiki/Distributed_version_control#Distributed_vs._centralized) system for email.
 
 ## Mission Statement
