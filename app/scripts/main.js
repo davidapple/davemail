@@ -218,7 +218,7 @@
     }
     function encryptMessage(){
         var message = cryptico.encrypt($('#composeMessage').val(), $('#composePublicKey').val());
-        return message.cipher;
+        return message;
     }
 
     function mapMessages(davemail){
@@ -422,6 +422,29 @@
             $('#sendingLoader').show();
             var message = encryptMessage();
             console.log(message);
+            if(message.status == 'success'){
+                setTimeout(function (){
+                    $('#composeTo').val('');
+                    $('#composePublicKey').val('');
+                    $('#composeMessage').val('');
+                    $('#sendingLoader').hide();
+                    $('#compose').hide();
+                    $('#signUpReplace').show();
+
+                    // Regenerate emails json
+                    var users = davemail.jsonData.responseJSON.davemail.users;
+                    var emails = davemail.jsonData.responseJSON.davemail.emails;
+                    var servers = davemail.jsonData.responseJSON.davemail.servers;
+                    emails.push({'time': Date.now(), 'cipher': message.cipher}); // Add user to users
+
+                    davemail.jsonData.responseJSON = {'davemail': {'users': users, 'emails': emails, 'servers': servers}}; // Replace local json
+                    $('#signUpJson').text(JSON.stringify(davemail.jsonData.responseJSON, null, 4));
+
+                    var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(davemail.jsonData.responseJSON, null, 4));
+                    $('<a id="signUpReplaceDownload" class="btn btn-primary tailor-paisley" href="data:' + data + '" download="davemail.json">Right click here</a>').appendTo('#signUpDownload');
+
+                }, 100);
+            }
         }else{
             console.log('fail');
         }
