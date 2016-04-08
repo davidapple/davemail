@@ -27,18 +27,19 @@
             .done(function(response) {
                 console.log('davemail.json loaded confirmation two');
                 if(_.isEqual(davemail.jsonData.responseJSON, response)){
-                    $('#usernameHeading').text(davemail.username);
+                    $('#signUpReplaceDownload').remove();
+                    $('#signUpButton').show();
+                    $('#signingUpLoader').hide();
+                    $('#fileReplacedButton').show();
+                    $('#fileReplacedLoader').hide();
+                   $('#usernameHeading').text(davemail.username);
                     messagesPage();
                     davemail.messages = mapMessages(davemail);
                     buildMessagesTable(davemail);
                 }else{
-
-                    // Tell user file has not beed replaced
-                    console.log('Hey, listen, you havent replaced the file dude.');
                     $('#fileNotReplacedWarning').show();
                     $('#fileReplacedLoader').hide();
                     $('#fileReplacedButton').show();
-
                 }
             })
             .fail(function( jqxhr, textStatus, error ) {
@@ -388,9 +389,11 @@
                     $('#signUpJson').text(JSON.stringify(davemail.jsonData.responseJSON, null, 4));
 
                     var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(davemail.jsonData.responseJSON, null, 4));
+                    $('#signUpUsername').val('');
+                    $('#signUpPassword').val('');
                     $('#signUp').hide();
                     $('#signUpReplace').show();
-                    $('<a class="btn btn-primary tailor-paisley" href="data:' + data + '" download="davemail.json">Right click here</a>').appendTo('#signUpDownload');
+                    $('<a id="signUpReplaceDownload" class="btn btn-primary tailor-paisley" href="data:' + data + '" download="davemail.json">Right click here</a>').appendTo('#signUpDownload');
 
                 }, 100);
                 
