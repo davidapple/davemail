@@ -432,10 +432,11 @@
                     $('#signUpReplace').show();
 
                     // Regenerate emails json
+                    var date = new Date();
                     var users = davemail.jsonData.responseJSON.davemail.users;
                     var emails = davemail.jsonData.responseJSON.davemail.emails;
                     var servers = davemail.jsonData.responseJSON.davemail.servers;
-                    emails.push({'time': Date.now(), 'cipher': message.cipher}); // Add user to users
+                    emails.push({'time': date.toISOString(), 'cipher': message.cipher}); // Add user to users
 
                     davemail.jsonData.responseJSON = {'davemail': {'users': users, 'emails': emails, 'servers': servers}}; // Replace local json
                     $('#signUpJson').text(JSON.stringify(davemail.jsonData.responseJSON, null, 4));
