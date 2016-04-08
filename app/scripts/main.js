@@ -302,27 +302,34 @@
         davemail.password = $('#signInPassword').val();
         davemail.passwordStrength = zxcvbn(davemail.password);
 
-        setTimeout(function (){
-            davemail = generateKeyPair(davemail);
+        if(davemail.passwordStrength.score < 4){
+            setTimeout(function (){
+                $('#passwordWarningSignIn').show();
+                $('#signInButton').show();
+                $('#signingInLoader').hide();
+            }, 100);
+        }else{
+            setTimeout(function (){
+                davemail = generateKeyPair(davemail);
 
-            _.map(davemail.jsonData.responseJSON.davemail.users, function(num, key){
-                if(davemail.publicKey == num.publicKey){
-                    $('#usernameHeading').text(key);
-                    davemail.username = key;
-                }
-            });
+                _.map(davemail.jsonData.responseJSON.davemail.users, function(num, key){
+                    if(davemail.publicKey == num.publicKey){
+                        $('#usernameHeading').text(key);
+                        davemail.username = key;
+                    }
+                });
 
-            $('#signingInLoader').hide();
-            $('#signIn').hide();
-            $('#signInPassword').val('');
+                $('#signingInLoader').hide();
+                $('#signIn').hide();
+                $('#signInPassword').val('');
 
-            messagesPage();
-            davemail.messages = mapMessages(davemail);
-            buildMessagesTable(davemail);
-            composeInit(davemail);
+                messagesPage();
+                davemail.messages = mapMessages(davemail);
+                buildMessagesTable(davemail);
+                composeInit(davemail);
 
-        }, 10);
-
+            }, 10);
+        }
     });
 
     $('#signUpButton').click(function(){
