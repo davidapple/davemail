@@ -362,7 +362,15 @@
                 usernameTaken = false;
             }
 
-            if((!usernameTaken) && davemail.passwordStrength.score > 3){
+            var usernameLegal = /^[a-z0-9]*$/.test(davemail.username);
+
+            if(!usernameLegal){
+                $('#usernameIllegalWarning').show();
+            }else{
+                $('#usernameIllegalWarning').hide();
+            }
+
+            if(usernameLegal && (!usernameTaken) && davemail.passwordStrength.score > 3){
                 $('#passwordWarning').hide();
                 $('#signUpButton').hide();
                 $('#signingUpLoader').show();
