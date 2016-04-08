@@ -9,7 +9,8 @@
     "datatables": "^1.10.11",
     "underscore": "^1.8.3",
     "cryptico": "git://github.com/wwwtyro/cryptico.git#9291ece634d37415e66396d749d38e612d66f935",
-    "zxcvbn": "^4.3.0"
+    "zxcvbn": "^4.3.0",
+    "jquery.listfilter": "^1.0.10"
   },
   "overrides": {
     "bootstrap-sass": {

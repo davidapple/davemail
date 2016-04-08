@@ -44,6 +44,7 @@
             <li><a id="navSignUpButton" href="#">Sign Up</a></li>
             <li class="active"><a id="navSignInButton" href="#">Sign In</a></li>
             <li><a id="navMessagesButton" href="#" style="display: none">Messages</a></li>
+            <li><a id="navComposeButton" href="#" style="display: none">Compose</a></li>
             <li><a id="navSignOutButton" href="#" style="display: none">Sign Out</a></li>
 
             <li class="dropdown">
@@ -215,11 +216,57 @@
 
       <div id="messages" style="display:none">
 
-        <h2>Hello <span id="usernameHeading">Anonymous</span></h2>
-
-        <table id="messagesTable" class="table davemail-messages-table"></table>
+        <div class="row">
+          <div class="col-lg-7 col-md-9 col-md-offset-1">
+            <h2>Messages for <span id="usernameHeading">Anonymous</span></h2>
+            <table id="messagesTable" class="table davemail-messages-table"></table>
+          </div>
+        </div>
 
       </div><!-- #messages -->
+
+      <div id="compose" style="display:none">
+
+        <div class="row">
+          <div class="col-lg-7 col-md-9 col-md-offset-1">
+
+            <h2>Compose a message</h2>
+
+            <div class="row nudge-mb-lg">
+              <div class="col-sm-6">
+                <label>To</label>
+                <input type="text" id="composeTo" class="form-control nudge-mb-zero"></input>
+
+                <div id="composeToListWrapper" class="compose-users-list-wrapper" style="display:none;">
+                  <ul id="composeToList" class="compose-users-list nudge-p-zero">
+                  </ul>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div id="composeShowPublicKey" class="nudge-mt-lg--xs" style="display:none;">
+                  <label>Public key</label>
+                  <input type="text" id="composePublicKey" class="form-control nudge-mb-zero"></input>
+                </div>
+              </div>
+            </div>
+
+            <label>Message</label>
+            <textarea id="composeMessage" class="form-control nudge-mb-lg" rows="10"></textarea>
+            <div class="row nudge-mb-lg">
+              <div class="col-sm-6">
+                <div class="checkbox">
+                  <label class="show-public-key"><input type="checkbox" id="composePublicKeyButton" value="showPublicKey">Show Public Key</label>
+                </div>
+              </div>
+              <div class="col-sm-3 col-sm-offset-3">
+              <p><a id="composeSendButton" class="btn btn-primary btn-block tailor-paisley" href="#" style="display:none;">Send</a></p>
+              <p id="sendingLoader" class="text-center nudge-my" style="display:none;">Sending <i class="fa fa-spinner fa-pulse"></i></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- #compose -->
 
       <div class="footer">
         <p class="nudge-t-md-xs nudge-my-sm"><i class="fa fa-bitcoin"></i> Donate bitcoin to 13D3A8PP91MLF5VTBQMH5HG76F42RNRF28</p>
@@ -235,6 +282,7 @@
     <script src="/bower_components/zxcvbn/dist/zxcvbn.js"></script>
     <script src="/bower_components/datatables/media/js/jquery.dataTables.js"></script>
     <script src="/bower_components/datatables/media/js/dataTables.bootstrap.js"></script>
+    <script src="/bower_components/jquery.listfilter/jquery.listfilter.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
     

@@ -47,6 +47,60 @@
             });
     }
 
+    function composeInit(davemail){
+        $('#composeToList li').remove();
+        var usersArray = _.map(davemail.jsonData.responseJSON.davemail.users, function(num, key){
+            $('<li>').text(key).click(function(event){
+                $('#composeTo').val(key);
+                $('#composeTo').removeClass('invalid');
+                $('#composePublicKey').val(num.publicKey);
+                $('#composeToListWrapper').hide();
+                $('#composeSendButton').show();
+            }).appendTo('#composeToList');
+            return key;
+        });
+        var filter = $('#composeTo'), clearfilter = $('input#clearfilter');
+        $('#composeToList').listfilter({
+            'filter': filter,
+            'clearlink': clearfilter,
+            'alternate': true,
+            'alternateclass': 'other'
+        });
+        $('#composeTo').keyup(function(){
+            if($('#composeTo').val().length > 0){
+                $('#composeToListWrapper').show();
+                if($('#composeToList li:visible').length == 0){
+                    $('#composeToListWrapper').hide();
+                }
+                if(_.indexOf(usersArray, $('#composeTo').val()) == -1){
+                    $('#composePublicKey').val('');
+                    $('#composeSendButton').hide();
+                }else{
+                    $('#composePublicKey').val(davemail.jsonData.responseJSON.davemail.users[$('#composeTo').val()].publicKey);
+                    $('#composeSendButton').show();
+                }
+            }else{
+                $('#composeToListWrapper').hide();
+            }
+        }).focusout(function(){
+            setTimeout(function (){
+                if(_.indexOf(usersArray, $('#composeTo').val()) == -1){
+                    $('#composeTo').addClass('invalid');
+                }else{
+                    $('#composeTo').removeClass('invalid');
+                    $('#composeToListWrapper').hide();
+                }
+            }, 10);
+        });
+        $('#composePublicKeyButton').click(function(){
+            if ($(this).prop('checked')){
+                $('#composeShowPublicKey').show();
+            }else{
+                $('#composeShowPublicKey').hide();
+            }
+        });
+    }
+
     function signInPage(event){
         if(_.isObject(event)){
             event.preventDefault();
@@ -75,11 +129,34 @@
             event.preventDefault();
         }
         $('#messages').show();
+        $('#compose').hide();
         $('#signIn').hide();
         $('#signUp').hide();
         $('#signUpReplace').hide();
         $('#navMessagesButton').show();
         $('#navMessagesButton').parent().addClass('active');
+        $('#navComposeButton').show();
+        $('#navComposeButton').parent().removeClass('active');
+        $('#navSignInButton').parent().removeClass('active');
+        $('#navSignUpButton').parent().removeClass('active');
+        $('#navSignOutButton').show();
+        $('#navSignInButton').hide();
+        $('#navSignUpButton').hide();
+        $('.jumbotron').hide();
+    }
+    function composePage(event){
+        if(_.isObject(event)){
+            event.preventDefault();
+        }
+        $('#messages').hide();
+        $('#compose').show();
+        $('#signIn').hide();
+        $('#signUp').hide();
+        $('#signUpReplace').hide();
+        $('#navMessagesButton').show();
+        $('#navMessagesButton').parent().removeClass('active');
+        $('#navComposeButton').show();
+        $('#navComposeButton').parent().addClass('active');
         $('#navSignInButton').parent().removeClass('active');
         $('#navSignUpButton').parent().removeClass('active');
         $('#navSignOutButton').show();
@@ -94,15 +171,23 @@
         $('#signIn').show();
         $('#signInButton').show();
         $('#messages').hide();
+        $('#compose').hide();
         $('#signUp').hide();
         $('#signUpReplace').hide();
+        $('#navComposeButton').hide();
         $('#navMessagesButton').hide();
         $('#navSignInButton').parent().addClass('active');
+        $('#navComposeButton').parent().removeClass('active');
         $('#navMessagesButton').parent().removeClass('active');
         $('#navSignUpButton').parent().removeClass('active');
         $('#navSignInButton').show();
         $('#navSignUpButton').show();
         $('#navSignOutButton').hide();
+        $('#composeTo').val('');
+        $('#composeTo').removeClass('invalid');
+        $('#composePublicKey').val('');
+        $('#composeShowPublicKey').hide();
+        $('#composePublicKeyButton').attr('checked', false)
         $('.jumbotron').show();
     }
     function signOut(davemail){
@@ -129,6 +214,10 @@
         console.log(davemail.privateKey);
         console.log(davemail.publicKey);
         return davemail;
+    }
+    function encryptMessage(){
+        var message = cryptico.encrypt($('#composeMessage').val(), $('#composePublicKey').val());
+        return message.cipher;
     }
 
     function mapMessages(davemail){
@@ -185,6 +274,9 @@
     $('#navMessagesButton').click(function(event){
         messagesPage(event);
     });
+    $('#navComposeButton').click(function(event){
+        composePage(event);
+    });
     $('#navSignOutButton').click(function(event){
         signOutPage(event);
         davemail = signOut(davemail);
@@ -227,6 +319,7 @@
             messagesPage();
             davemail.messages = mapMessages(davemail);
             buildMessagesTable(davemail);
+            composeInit(davemail);
 
         }, 10);
 
@@ -302,6 +395,17 @@
             }
         }else{
             $('#usernameEmptyWarning').show();
+        }
+    });
+
+    $('#composeSendButton').click(function(){
+        if(davemail.jsonData.responseJSON.davemail.users[$('#composeTo').val()].publicKey == $('#composePublicKey').val()){
+            $(this).hide();
+            $('#sendingLoader').show();
+            var message = encryptMessage();
+            console.log(message);
+        }else{
+            console.log('fail');
         }
     });
 
