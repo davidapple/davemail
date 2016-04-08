@@ -10,11 +10,8 @@
     "underscore": "^1.8.3",
     "cryptico": "git://github.com/wwwtyro/cryptico.git#9291ece634d37415e66396d749d38e612d66f935",
     "zxcvbn": "^4.3.0",
-<<<<<<< HEAD
-    "jquery.listfilter": "^1.0.10"
-=======
+    "jquery.listfilter": "^1.0.10",
     "tailor": "git://github.com/davidapple/tailor"
->>>>>>> 0b4aff0817b50a34bc70cf30bfad6442a5cb3c0a
   },
   "overrides": {
     "bootstrap-sass": {
