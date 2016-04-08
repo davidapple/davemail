@@ -61,11 +61,12 @@
     <div class="jumbotron tailor-paisley nudge-m-zero nudge-p-zero">
       <div class="container">
         <div class="row">
-          <div class="col-sm-5">
+          <div class="col-lg-3 col-lg-offset-1 col-sm-4">
             <img src="images/davemail.png" class="nudge-m-zero img-responsive hidden-xs">
           </div>
-          <div class="col-sm-7">
-            <h1 class="nudge-mt-lg nudge-h-hg">Davemail</h1>
+          <div class="col-sm-8">
+            <img src="images/davemail-logo.png" class="nudge-mt-lg img-responsive">
+            <h1 class="nudge-mt-lg nudge-h-hg hide">Davemail</h1>
             <p>Decentralised, deterministic RSA encrypted, anonymous, offline email for git.</p>
           </div>
         </div>
@@ -103,7 +104,7 @@
             <h2 class="text-center nudge-mb-lg">Sign In</h2>
 
             <form name="signInForm" onsubmit="event.preventDefault();">
-              <input type="password" id="signInPassword" class="form-control nudge-my" placeholder="Password">
+              <input type="password" id="signInPassword" class="form-control nudge-my" placeholder="password">
               <div class="row nudge-my">
                 <div class="col-sm-6">
                   <a id="signUpButtonOnSignIn" class="btn btn-default btn-block">Sign Up</a>
@@ -149,8 +150,8 @@
             <h2 class="text-center nudge-mb-lg">Sign Up</h2>
             
             <form name="signUpForm" onsubmit="event.preventDefault();">
-              <input type="text" id="signUpUsername" class="form-control nudge-my davemail-sign-up-username" placeholder="Username">
-              <input type="password" id="signUpPassword" class="form-control nudge-my" placeholder="Password">
+              <input type="text" id="signUpUsername" class="form-control nudge-my davemail-sign-up-username" placeholder="username">
+              <input type="password" id="signUpPassword" class="form-control nudge-my" placeholder="password">
 
               <div id="usernameTakenWarning" class="alert alert-danger nudge-my-hg" style="display:none;">
                 <h3 class="nudge-mt-zero">Usename taken</h3>
