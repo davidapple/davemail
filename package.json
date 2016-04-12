@@ -1,5 +1,9 @@
 {
-  "private": true,
+  "name": "davemail",
+  "version": "1.0.0",
+  "description": "Decentralised, deterministic RSA encrypted, anonymous, offline email for git.",
+  "author": "David Apple <davidapple@protonmail.com>",
+  "private": false,
   "engines": {
     "node": ">=0.12.0"
   },
