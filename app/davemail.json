@@ -1,37 +1,21 @@
 {
     "davemail": {
         "users": {
-            "guest": {
-                "publicKey": "seCjPjXROJRCvsdqbgvq9CKn/Lq+OlNP3i2TUZauzjLcytF6mvRkfHAv4y3tJl0WNdF6p7NJwEYv+3GwFSlZ8tGM7PPaghyjnR92yQA7DiFPux741VCPUndNAMESyApjvsr29Bktnoxclknr2sUj1sL01ZA5cwWE/l3E0+x7ZKkEWWMwBW0qbSLR5OG8K7AzoP7YQ08ES7tDut0T/TjgQt1LeNdxSie+CvDx/9gSrdfBvYpVzhozkNblXbk3axSB"
-            },
             "davidapple": {
-                "publicKey": "i4J4GuwXAKHQygRiGpdcZ3JZZfcPDg/kOS9Gm28jc4taQfeVGmz/DHVB4XMUa73Uk0soooVl11dVMotKvLbVqFhjCFMlTV8tvSlLNbUXamM4s25iu3oQRakSA0acDijcywGicxUuIslCiXc4glRzk3MYy7hPMAspIKY+r0TMlR+nKa469zAY1hsyS1odUnSoXe7s5+wr8OBZywgDFyieZ6ZFXMiWdpLdbQYOKSr/ofxTr+qkDCh1Dygm+n5cWTED"
-            },
-            "test": {
-                "publicKey": "o9OE+FmgxR8inOGwAKSC7DeBc4OhLZfz8wu++wmbHP1qAusqFN+6lNEXSnofVblYM8mT9FbGKvATJxoI6W6KaWDF1qpSlUE+eZZioemrtQBlmwjZFvWMoTS76hw4TiKxkrowNP/bPTrHj+Qs/AqnfuRd8tbKA5zMOxwtS+7BdkfqVR7eye5FFlK2lFJhKM5gBwtk+d0YlTBurQlHMVOq+mAdwdCKvt+sf0NxTjZcUiuG5noVAtjq06ZNg+DyLKVR"
+                "publicKey": "b8swlmHX6fsc1lSMRjXOqQoYjGf/vtu0wEy4TKudKtpDJ9MzYlg+V1OCpNFZEKq22sYGHjvazxLqy9ugz4nhVAmAMmuYFRukMW1OcNzjdCEu4sno5hUPoSHr0cJb4T2rQl7Tc1dThJmpCbE9NRPA1FZx5XVMhCmiOBTwU+pW0l6BBj+jl2nFeyndknwL/WdN47UEj4Um5yfx/5+I/LS4EIUlme1fkEYe5XjCaM3zFN1UFUw4nDih4MUKrjEE7n2/"
             },
             "tinyi": {
                 "publicKey": "nQOZN7PF0Qr5to0xpF6iWGGRU0Yqm4S/0OZVjkx4dldg6+XlxzeJNYQheTh/CTaqiRzVxyUCEekcsVxabGtx9K6xEIVRFP2okGOXYu7zJMKQHf25hW4nWLS/34DJRTibxkq1VzgJ6nlVMwOdUjr0sgqK6vI3X7iEyBKe76I0m610Y2q9hvxNOg+MBQ64dJjdx2wCF9LitxGXy1DaQCa420RE86sHwK9yMrH3mNVRqGmVRX5KkeS2QhHdXwoe4bxV"
-            },
-            "seancoinary": {
-                "publicKey": "h5uS4qv9T4Cq8FdZknmlZ9ro6CQZBnscgOgQyanGOF++FlKREsC/Q/iJCN1yq1DuEzKbG58di582UWWP6vcpZVVxXcbHKdmhw8Wn/VHryxrE8mg2OdwNxjID+t9jFiovfsAEnZntiAJiED921lTLfPR8S6rJjvrt3abWXDFkSd//GDDQS0aev6hTvckhqez1ZOgzZIpHaGGHJhWdG7WZhZGPTT0HclV5YfmG9+hU9TY1ToIz+eLA1Q0WCBUlH3uB"
-            },
-            "simon": {
-                "publicKey": "4uEeAsCyKmz5wuqqtYWfQ00ebJ/cl6bSta14NdprytgaN6sGb/hjVRxGr20fbmQ1HN2przH4Jd6eNVez6o7Vo67VBGmxmAOvR7EHC/hphntEz6BuuZVHue6c0MJY4yT0xfFKJkFXsqvbS8UZprvnzIRmctUvNoNDAbdD/kYo7m/crCRqSG3ftTqLa0+IX9aqzs07j+ACkYQoQ5e4e5LAoB3gXuqmLRUN2wnzltBdB7y+JxsZE0Qyb1/HtGVzKoKf"
             }
         },
         "emails": [
             {
-                "time": "2016-04-03T17:52:24+00:00",
-                "cipher": "T83fb1lO/bHCRzn2AhT+M5dEjTEwttvS80Fab7a7xcUwolgtk3AnFUlDDRqZmafViynzGjNO5sVlyjM2eC4itdH7x+grEuI3hNlq+woBuvPpp/0NDbWb9xMsOSUGmMEX5B5ZjudOXu+1oDn+4xrtTPALEesx4sV+MHw18rJ881TevfMLEoEbe0NNU05QPViWAlAVjGXyI5oI89pxt9D37I+qWtBnQDYkfCbRARZWqGp9HXWz/hZ/iv355yRSvkQy?GfNVvTV1lprZa/vo6CwR65PdbcDLHQ23Ki+o+OkNkI0="
+                "time": "2016-04-11T09:48:41.751Z",
+                "cipher": "Wn/Oj5fSf+IRPwYYjazM2tpOzRPe81memxXSPqmSGx4eXZkIzVsoPnaMohwTLga8hVNvV6GJan+ZroiDDjD8Kw9MoP+zULmTE1PoI27p/qgSMKBHf7S8mTOvpm5+CzaMjfQhqJ6DcRibnQSQgfKLjn06QjtHt2v9qD0hlKODLrhhVy5m8ShgEHI6/TOyXW3/w/y0NZStPVY8gCJNO1F+zlMsX9QhRYV7XZ8TCExkLdsB3lO6iG7RhxMflb/iMukm?TuyIKKX1YcSQlTQhCOhjxhR2jwjhDD/Z16/xR1lzlg/CjrzbMlsF/p0HoOBZTEcU8Jq+vZ6u/P0I/x20v99P3A=="
             },
             {
-                "time": "2016-04-03T17:52:24+00:00",
-                "cipher": "T83fb1lO/bHCRzn2AhT+M5dEjTEwttvS80Fab7a7xcUwolgtk3AnFUlDDRqZmafViynzGjNO5sVlyjM2eC4itdH7x+grEuI3hNlq+woBuvPpp/0NDbWb9xMsOSUGmMEX5B5ZjudOXu+1oDn+4xrtTPALEesx4sV+MHw18rJ881TevfMLEoEbe0NNU05QPViWAlAVjGXyI5oI89pxt9D37I+qWtBnQDYkfCbRARZWqGp9HXWz/hZ/iv355yRSvkQy?GfNVvTV1lprZa/vo6CwR65PdbcDLHQ23Ki+o+OkNkI0="
-            },
-            {
-                "time": "2016-04-03T17:52:24+00:00",
-                "cipher": "DU8AzZDceFmSA2rVqamqGW+MNV7RFn+T8JQs4ji5BKi9UWjPzIqOL9x+ODg2WdDFwSpIs4z2tpyWq2U4EwCIxpWAU3rwUxLMZHr8tdYMLjPRaVWDEGh3PmqlfaT6ZIh6f3YcAgw4dX8AwoWqQokFGykOPObyZEJJuajxEthJkGYgiarYMWaErhepkp4ZMv4STEjJ8iybgKaZiUDwNyHVw5v9SmdqD5e7tkl1orO8E6px1IkJIvhP0TQ+H+oCfECt?jDylABSxsdgJPrcilfkaCh2E8atXTmVyCeS8EpFa/3Q="
+                "time": "2016-04-11T09:52:22.194Z",
+                "cipher": "hltRGEkeFR7zWubXdIspvJtte+/cGHmBnhGvM8U8roTeYA86GuyfVSFDEXhCwipxPtAM0jJmrFpLHBY/51QOf+uHjNxMBxMob+NOme8kiiw3plJeD1Tqv/MwoDWzhA8TQRxvdUPAEjo1BC1wVLFgra30Aw3sblL7UYQnPjcXPDdwFLcRZ+HbMdCqYf3z1fdXvEv7LEoYwSkVivGmdJ520MmVpPzcC+WqXv9I/GuU8oau3CYKJEotZklCIVz0j/u+?NbANPCDdSQvC4HpNXEzZo3HlAAhaxcOlSlkO19x5a3WbOTscl0aYkeXiAdkv5XK2xXPk+uPpwQWOl0ucO4eyDQ=="
             }
         ],
         "servers": [

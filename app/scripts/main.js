@@ -222,20 +222,21 @@
     }
 
     function mapMessages(davemail){
+        davemail.decryptedMessages = new Array();
         return _.map(davemail.jsonData.responseJSON.davemail.emails, function(num, key){
             var message = cryptico.decrypt(num.cipher, davemail.privateKey);
             if (message.status == 'success'){
-                console.log(message);
+                davemail.decryptedMessages.push([ num.time, message.plaintext ])
                 return [ num.time, message.plaintext ];
             }
         });
     }
 
     function buildMessagesTable(davemail){
-        if (!_.isUndefined(davemail.messages[0])){
+        if (!_.isUndefined(davemail.decryptedMessages[0])){
             davemail.messagesTable.destroy();
             davemail.messagesTable = $('#messagesTable').DataTable({
-                data: davemail.messages,
+                data: davemail.decryptedMessages,
                 ordering: false,
                 columns: [
                     {title: "Time"},
@@ -394,6 +395,8 @@
                     $('#signUp').hide();
                     $('#signUpReplace').show();
                     $('<a id="signUpReplaceDownload" class="btn btn-primary tailor-paisley" href="data:' + data + '" download="davemail.json">Right click here</a>').appendTo('#signUpDownload');
+
+                    composeInit(davemail);
 
                 }, 100);
                 
