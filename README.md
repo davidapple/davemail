@@ -2,23 +2,33 @@
 
 <img src="https://raw.githubusercontent.com/davidapple/davemail/master/app/images/davemail.png" height="200">
 
-Decentralised, deterministic RSA encrypted, anonymous, offline email for git. Using the git [distributed version control](https://en.wikipedia.org/wiki/Distributed_version_control#Distributed_vs._centralized) system for email.
+Decentralised, encrypted, anonymous, offline messaging platform for git. Using the git [distributed version control](https://en.wikipedia.org/wiki/Distributed_version_control#Distributed_vs._centralized) system for encrypted messaging.
 
 ## Mission Statement
 
 Empowering you to take back your communication privacy.
 
-## The Vision
+## SMTP email problems
 
-`davemail.json` contains communications data (users and encypted emails).
+[SMTP email](https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol) is one of the oldest technologies on the internet. Emails are sent in plain text accross the internet so anyone listening in can read them. [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden) has revealed that the largest email platforms in the world are in league with government spies with little regard for the fundamental right to privacy, recognized in the UN Declaration of Human Rights.
 
-The webapp facilitates user creation, email creation and brute force decryption - all offline.
+## PGP problems
 
-The webapp updates `davemail.json`. Users can commit updates to this file to a shared git repsoitory.
+[Pretty Good Privacy (PGP)](https://en.wikipedia.org/wiki/Pretty_Good_Privacy) is a solution to some of the problems with SMTP email as the email body is encrypted. However the PGP key pair is created [nondeterministically](https://en.wikipedia.org/wiki/Nondeterministic_algorithm) so the private key must be saved and stored securely in order to decrypted messages. The email metadata (sender, recievers, subject, time) is still prone to interception and mass survailance.
 
-Git repository owners takes responsibility for reducing spam by preventing users from committing too many emails too frequently.
+## RSA Encrypted Davemail
 
-Anonymity can be achieved within a git repository through sharing SSH keys. And communities can be managed by davemailing new git SSH keys to trusted users at regular intevals.
+Davemail is an alternative to SMTP email. Data is stored in json format with user data separated from the encrypted message data. The json data is open source and decentralised using [git](https://en.wikipedia.org/wiki/Git_(software)) but it is impossible for anyone to deduce which encrypted message was sent to or from which users (unless you hold the key to messages sent to you).
+
+RSA keys are generated [deterministically](https://en.wikipedia.org/wiki/Deterministic_algorithm) so it is possible to restore long private keys using a strong and memorable passphrase. No need to save and secure a private key on a local machine.
+
+The Davemail application makes reading and sending encrypted messages easy, hiding the encryption process to improve the user experience. The Davemail application also works offline, so your passphrase can be protected from hackers using keyloggers or screen capture attacks.
+
+## Decentralisation and anonymity
+
+This git repository can be cloned and hosted on any computer connected to the internet. SSH access details to these git repositories can be published in the json file, anonymising users.
+
+Git repository owners can take responsibility for reducing spam by limiting the frequency of commits.
 
 ## Development
 Originally created using [Yeoman Webapp Generator](https://github.com/yeoman/generator-webapp).
