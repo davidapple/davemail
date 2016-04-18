@@ -65,6 +65,10 @@ This git repository can be cloned and hosted on any computer connected to the in
 }
 ```
 
+## Quick Start
+
+Clone or download this repository and open `dist/index.html`. The `davemail.json` file will have to be uploaded and overwritten by the user as you use the app.
+
 ## Development
 Originally created using [Yeoman Webapp Generator](https://github.com/yeoman/generator-webapp).
 
