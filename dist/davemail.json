@@ -1,0 +1,30 @@
+{
+    "davemail": {
+        "users": {
+            "davidapple": {
+                "publicKey": "b8swlmHX6fsc1lSMRjXOqQoYjGf/vtu0wEy4TKudKtpDJ9MzYlg+V1OCpNFZEKq22sYGHjvazxLqy9ugz4nhVAmAMmuYFRukMW1OcNzjdCEu4sno5hUPoSHr0cJb4T2rQl7Tc1dThJmpCbE9NRPA1FZx5XVMhCmiOBTwU+pW0l6BBj+jl2nFeyndknwL/WdN47UEj4Um5yfx/5+I/LS4EIUlme1fkEYe5XjCaM3zFN1UFUw4nDih4MUKrjEE7n2/"
+            },
+            "tinyi": {
+                "publicKey": "nQOZN7PF0Qr5to0xpF6iWGGRU0Yqm4S/0OZVjkx4dldg6+XlxzeJNYQheTh/CTaqiRzVxyUCEekcsVxabGtx9K6xEIVRFP2okGOXYu7zJMKQHf25hW4nWLS/34DJRTibxkq1VzgJ6nlVMwOdUjr0sgqK6vI3X7iEyBKe76I0m610Y2q9hvxNOg+MBQ64dJjdx2wCF9LitxGXy1DaQCa420RE86sHwK9yMrH3mNVRqGmVRX5KkeS2QhHdXwoe4bxV"
+            }
+        },
+        "emails": [
+            {
+                "time": "2016-04-11T09:48:41.751Z",
+                "cipher": "Wn/Oj5fSf+IRPwYYjazM2tpOzRPe81memxXSPqmSGx4eXZkIzVsoPnaMohwTLga8hVNvV6GJan+ZroiDDjD8Kw9MoP+zULmTE1PoI27p/qgSMKBHf7S8mTOvpm5+CzaMjfQhqJ6DcRibnQSQgfKLjn06QjtHt2v9qD0hlKODLrhhVy5m8ShgEHI6/TOyXW3/w/y0NZStPVY8gCJNO1F+zlMsX9QhRYV7XZ8TCExkLdsB3lO6iG7RhxMflb/iMukm?TuyIKKX1YcSQlTQhCOhjxhR2jwjhDD/Z16/xR1lzlg/CjrzbMlsF/p0HoOBZTEcU8Jq+vZ6u/P0I/x20v99P3A=="
+            },
+            {
+                "time": "2016-04-11T09:52:22.194Z",
+                "cipher": "hltRGEkeFR7zWubXdIspvJtte+/cGHmBnhGvM8U8roTeYA86GuyfVSFDEXhCwipxPtAM0jJmrFpLHBY/51QOf+uHjNxMBxMob+NOme8kiiw3plJeD1Tqv/MwoDWzhA8TQRxvdUPAEjo1BC1wVLFgra30Aw3sblL7UYQnPjcXPDdwFLcRZ+HbMdCqYf3z1fdXvEv7LEoYwSkVivGmdJ520MmVpPzcC+WqXv9I/GuU8oau3CYKJEotZklCIVz0j/u+?NbANPCDdSQvC4HpNXEzZo3HlAAhaxcOlSlkO19x5a3WbOTscl0aYkeXiAdkv5XK2xXPk+uPpwQWOl0ucO4eyDQ=="
+            }
+        ],
+        "servers": [
+            {
+                "ssh": "git@github.com:davidapple/davemail.git",
+                "username": "anonymous",
+                "password": "example",
+                "key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCB007n/ww+ouN4gSLKssMxXnBOvf9LGt4LojG6rs6hPB09j9R/T17/x4lhJA0F3FR1rP6kYBRsWj2aThGw6HXLm9/5zytK6Ztg3RPKK+4kYjh6541NYsnEAZuXz0jTTyAUfrtU3Z5E003C4oxOj6H0rfIF1kKI9MAQLMdpGW1GYEIgS9EzSdfd8AcCIicTDWbqLAcU4UpkaX8KyGlLwsNuuGztobF8m72ALC/nLF6JLtPofwFBlgc+myivO7TCUSBdLQlgMVOFq1I2uPWQOkOWQAHukEOmfjy2jctxSDBQ220ymjaNsHT4kgtZg2AYYgPqdAv8JggJICUvax2T9va5 gsg-keypair"
+            }
+        ]
+    }
+}
