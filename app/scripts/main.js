@@ -15,8 +15,7 @@
             .fail(function( jqxhr, textStatus, error ) {
                 var err = textStatus + ", " + error;
                 console.log('davemail.json failed to load: ' + err );
-                $('#signIn').hide();
-                $('#importDavemail').show();
+                importPage();
             });
     }
 
@@ -32,7 +31,7 @@
                     $('#signingUpLoader').hide();
                     $('#fileReplacedButton').show();
                     $('#fileReplacedLoader').hide();
-                   $('#usernameHeading').text(davemail.username);
+                    $('#usernameHeading').text(davemail.username);
                     messagesPage();
                     davemail.messages = mapMessages(davemail);
                     buildMessagesTable(davemail);
@@ -45,6 +44,18 @@
             .fail(function( jqxhr, textStatus, error ) {
                 var err = textStatus + ", " + error;
                 console.log('davemail.json failed to load: ' + err );
+
+                // Let the user progress in the hope that they have successfully replaced their json file
+                $('#signUpReplaceDownload').remove();
+                $('#signUpButton').show();
+                $('#signingUpLoader').hide();
+                $('#fileReplacedButton').show();
+                $('#fileReplacedLoader').hide();
+                $('#usernameHeading').text(davemail.username);
+                messagesPage();
+                davemail.messages = mapMessages(davemail);
+                buildMessagesTable(davemail);
+                
             });
     }
 
@@ -102,6 +113,20 @@
         });
     }
 
+    function importPage(event){
+        if(_.isObject(event)){
+            event.preventDefault();
+        }
+        $('#importDavemail').show();
+        $('nav').hide();
+        $('#signIn').hide();
+        $('#signUp').hide();
+        $('#messages').hide();
+        $('#signUpReplace').hide();
+        $('#navSignInButton').parent().removeClass('active');
+        $('#navSignUpButton').parent().removeClass('active');
+        $('#navMessagesButton').parent().removeClass('active');
+    }
     function signInPage(event){
         if(_.isObject(event)){
             event.preventDefault();
@@ -261,6 +286,7 @@
             var jsonObj = JSON.parse(event.target.result);
             davemail.jsonData = new Object();
             davemail.jsonData.responseJSON = jsonObj;
+            $('nav').show();
             $('#signIn').show();
             $('#importDavemail').hide();
         }
