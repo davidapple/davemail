@@ -8,6 +8,10 @@ Decentralised, encrypted, anonymous, offline messaging platform for git. Using t
 
 Empowering you to take back your communication privacy.
 
+## Quick Start!
+
+Clone or download this repository and open `dist/index.html`. Simple!
+
 ## SMTP email problems
 
 [SMTP email](https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol) is one of the oldest technologies on the internet. Emails are sent in plain text accross the internet so anyone listening in can read them. [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden) has revealed that the largest email platforms in the world are in league with government spies with little regard for the fundamental right to privacy, recognized in the UN Declaration of Human Rights.
@@ -64,10 +68,6 @@ This git repository can be cloned and hosted on any computer connected to the in
     }
 }
 ```
-
-## Quick Start
-
-Clone or download this repository and open `dist/index.html`. The `davemail.json` file will have to be uploaded and overwritten by the user as you use the app.
 
 ## Development
 Originally created using [Yeoman Webapp Generator](https://github.com/yeoman/generator-webapp).
