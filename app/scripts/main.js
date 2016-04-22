@@ -222,8 +222,8 @@
             data: [],
             ordering: false,
             columns: [
-                {title: "Time"},
-                {title: "Message"}
+                {title: "Message"},
+                {title: "Time"}
             ]
         });
         davemail.username = undefined;
@@ -251,8 +251,9 @@
         return _.map(davemail.jsonData.responseJSON.davemail.emails, function(num, key){
             var message = cryptico.decrypt(num.cipher, davemail.privateKey);
             if (message.status == 'success'){
-                davemail.decryptedMessages.push([ num.time, message.plaintext ])
-                return [ num.time, message.plaintext ];
+                var timeReadable = moment(num.time).format("MMM Do YY");
+                davemail.decryptedMessages.push([ message.plaintext, timeReadable ]);
+                return [ message.plaintext, timeReadable ];
             }
         });
     }
@@ -264,8 +265,8 @@
                 data: davemail.decryptedMessages,
                 ordering: false,
                 columns: [
-                    {title: "Time"},
-                    {title: "Message"}
+                    {title: "Message"},
+                    {title: "Time"}
                 ]
             });
         }
@@ -317,8 +318,8 @@
         data: [],
         ordering: false,
         columns: [
-            {title: "Time"},
-            {title: "Message"}
+            {title: "Message"},
+            {title: "Time"}
         ]
     });
 

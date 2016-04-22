@@ -11,7 +11,8 @@
     "cryptico": "git://github.com/wwwtyro/cryptico.git#9291ece634d37415e66396d749d38e612d66f935",
     "zxcvbn": "^4.3.0",
     "jquery.listfilter": "^1.0.10",
-    "tailor": "git://github.com/davidapple/tailor"
+    "tailor": "git://github.com/davidapple/tailor",
+    "moment": "^2.13.0"
   },
   "overrides": {
     "bootstrap-sass": {
