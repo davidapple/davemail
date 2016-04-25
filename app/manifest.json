@@ -8,5 +8,8 @@
       "scripts": ["background.js"]
     }
   },
-  "icons": { "16": "davemail-16.png", "128": "davemail-128.png" }
+  "icons": { "16": "davemail-16.png", "128": "davemail-128.png" },
+  "permissions": [
+    "fileSystem"
+  ]
 }

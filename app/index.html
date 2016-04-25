@@ -28,7 +28,7 @@
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <nav class="navbar navbar-inverse nudge-m-zero nudge-b-zero nudge-r-zero">
+    <nav class="navbar navbar-inverse nudge-m-zero nudge-b-zero nudge-r-zero" style="display:none;">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
@@ -75,31 +75,44 @@
 
     <div class="container">
 
-      <div id="importDavemail" style="display:none;">
+      <div id="importDavemail">
 
-        <div class="row">
-          <div class="col-sm-6 col-sm-offset-3">
-            <h2 class="text-center nudge-mb-lg">Upload file</h2>
-            <p class="text-center">You need to upload your <i>davemail.json</i> file.</p>
+        <div class="row nudge-mt-lg">
+          <div class="col-sm-6">
+            <div class="well">
+              <h2 class="text-center nudge-mb-lg">Load data</h2>
+              <p class="text-center">Upload a <i>davemail.json</i> file.</p>
 
-            <form name="importDavemailForm" onsubmit="event.preventDefault();">
-              <input type="file" id="importDavemailFile" class="nudge-my-hg">
+              <form name="importDavemailForm" onsubmit="event.preventDefault();">
+                <input type="file" id="importDavemailFile" class="nudge-my-hg">
+                <div class="row nudge-my">
+                  <div class="col-sm-6 col-sm-offset-3">
+                    <input type="submit" id="importDavemailButton" class="btn btn-primary btn-block tailor-paisley" value="Load">
+                    <p id="importingLoader" class="text-center nudge-my" style="display:none;">Importing file <i class="fa fa-spinner fa-pulse"></i></p>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="well">
+              <h2 class="text-center nudge-mb-lg">Create new data</h2>
+              <p class="text-center">Create a new <i>davemail.json</i> file.</p>
               <div class="row nudge-my">
-                <div class="col-sm-6 col-sm-offset-6">
-                  <input type="submit" id="importDavemailButton" class="btn btn-primary btn-block tailor-paisley" value="Upload">
-                  <p id="importingLoader" class="text-center nudge-my" style="display:none;">Importing file <i class="fa fa-spinner fa-pulse"></i></p>
+                <div class="col-sm-6 col-sm-offset-3">
+                  <a id="createDavemailButton" class="btn btn-primary btn-block tailor-paisley">Create</a>
+                  <p id="creatingLoader" class="text-center nudge-my" style="display:none;">Creating file <i class="fa fa-spinner fa-pulse"></i></p>
                 </div>
               </div>
-            </form>
-            
+            </div>
           </div>
         </div>
 
       </div><!-- #importDavemail -->
 
-      <div id="signIn">
+      <div id="signIn" style="display:none;">
 
-        <div class="row">
+        <div class="row nudge-mb-hg">
           <div class="col-sm-6 col-sm-offset-3">
             <h2 class="text-center nudge-mb-lg">Sign In</h2>
 
@@ -124,20 +137,11 @@
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="alert nudge-my-hg">
-              <h3 class="nudge-mt-zero">Under the hood</h3>
-              <p>The sign in button generates a RSA key pair on your local machine (see browser console).</p>
-            </div>
-          </div>
-        </div>
-
       </div><!-- #signIn -->
 
       <div id="signUp" style="display:none;">
 
-        <div class="row">
+        <div class="row nudge-mb-hg">
           <div class="col-sm-6">
             <div class="alert nudge-my-hg">
               <h3 class="nudge-mt-zero">Create a strong password</h3>
@@ -186,25 +190,15 @@
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="alert nudge-my-hg">
-              <h3 class="nudge-mt-zero">Under the hood</h3>
-              <p>The sign up button generates a RSA key pair on your local machine (see browser console) and adds the user's username and public RSA key to <code>davemail.json</code>. This page returns an error if the username is already in the json file. The page uses <a href="https://github.com/dropbox/zxcvbn" target="_blank">zxcvbn</a>, preventing users from creating weak passwords.</p>
-            </div>
-          </div>
-        </div>
-
       </div><!-- #signUp -->
 
       <div id="signUpReplace" style="display:none">
 
         <div class="row">
           <div class="col-sm-6 col-sm-offset-3">
-            <h2 class="text-center mudge-mb-lg">Replace file</h2>
-            <p class="text-center">You need to overwrite your <i>davemail.json</i> file.</p>
-            <p class="text-center nudge-my-hg"><span id="signUpDownload"></span> and select Save as&hellip; <i class="fa fa-mouse-pointer"></i></p>
-            <p class="nudge-my-hg">Then replace the existing <i>davemail.json</i> file with this new one. This new file contains your new data.</p>
+            <h2 class="text-center mudge-mb-lg">Download data</h2>
+            <p class="text-center">Download the <i>davemail.json</i> file.</p>
+            <p class="text-center nudge-my-hg"><span id="signUpDownload"></span></p>
 
             <textarea id="signUpJson" class="form-control nudge-t-sm hide"></textarea>
 

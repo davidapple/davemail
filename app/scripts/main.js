@@ -5,60 +5,6 @@
     davemail.info = 'Davemail 1.0.0 by David Apple https://github.com/davidapple/davemail Donate Bitcoin to 13D3A8PP91MLF5VTBQMH5HG76F42RNRF28';
 
     // - Functions
-    function loadDavemail(){
-        return $.getJSON('davemail.json', function() {
-            console.log('davemail.json loaded confirmation one');
-        })
-            .done(function() {
-                console.log('davemail.json loaded confirmation two');
-            })
-            .fail(function( jqxhr, textStatus, error ) {
-                var err = textStatus + ", " + error;
-                console.log('davemail.json failed to load: ' + err );
-                importPage();
-            });
-    }
-
-    function loadDavemailAgain(davemail){
-        var newDavemail = $.getJSON('davemail.json', function() {
-            console.log('davemail.json loaded confirmation one');
-        })
-            .done(function(response) {
-                console.log('davemail.json loaded confirmation two');
-                if(_.isEqual(davemail.jsonData.responseJSON, response)){
-                    $('#signUpReplaceDownload').remove();
-                    $('#signUpButton').show();
-                    $('#signingUpLoader').hide();
-                    $('#fileReplacedButton').show();
-                    $('#fileReplacedLoader').hide();
-                    $('#usernameHeading').text(davemail.username);
-                    messagesPage();
-                    davemail.messages = mapMessages(davemail);
-                    buildMessagesTable(davemail);
-                }else{
-                    $('#fileNotReplacedWarning').show();
-                    $('#fileReplacedLoader').hide();
-                    $('#fileReplacedButton').show();
-                }
-            })
-            .fail(function( jqxhr, textStatus, error ) {
-                var err = textStatus + ", " + error;
-                console.log('davemail.json failed to load: ' + err );
-
-                // Let the user progress in the hope that they have successfully replaced their json file
-                $('#signUpReplaceDownload').remove();
-                $('#signUpButton').show();
-                $('#signingUpLoader').hide();
-                $('#fileReplacedButton').show();
-                $('#fileReplacedLoader').hide();
-                $('#usernameHeading').text(davemail.username);
-                messagesPage();
-                davemail.messages = mapMessages(davemail);
-                buildMessagesTable(davemail);
-                
-            });
-    }
-
     function composeInit(davemail){
         $('#composeToList li').remove();
         var usersArray = _.map(davemail.jsonData.responseJSON.davemail.users, function(num, key){
@@ -273,9 +219,7 @@
     }
 
     // - Application
-
-    // Load davemail.json
-    davemail.jsonData = loadDavemail();
+    importPage();
 
     // Let users upload davemail.json if it fails to load
     $(document).on('change', '#importDavemailFile', function(event){
@@ -292,6 +236,23 @@
             $('#importDavemail').hide();
         }
         reader.readAsText(event.target.files[0]);
+    });
+
+    $(document).on('click', '#createDavemailButton', function(event){
+        $('#createDavemailButton').hide();
+        $('#creatingLoader').show();
+        davemail.jsonData = new Object();
+        davemail.jsonData.responseJSON = new Object();
+        davemail.jsonData.responseJSON = {
+            "davemail": {
+                "users": {},
+                "emails": [],
+                "servers": []
+            }
+        };
+        $('nav').show();
+        $('#signIn').show();
+        $('#importDavemail').hide();
     });
 
     $('#navSignInButton').click(function(event){
@@ -421,7 +382,7 @@
                     $('#signUpPassword').val('');
                     $('#signUp').hide();
                     $('#signUpReplace').show();
-                    $('<a id="signUpReplaceDownload" class="btn btn-primary tailor-paisley" href="data:' + data + '" download="davemail.json">Right click here</a>').appendTo('#signUpDownload');
+                    $('<a id="signUpReplaceDownload" class="btn btn-primary tailor-paisley" href="data:' + data + '" download="davemail.json">Download</a>').appendTo('#signUpDownload');
 
                     composeInit(davemail);
 
@@ -472,7 +433,7 @@
                     $('#signUpJson').text(JSON.stringify(davemail.jsonData.responseJSON, null, 4));
 
                     var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(davemail.jsonData.responseJSON, null, 4));
-                    $('<a id="signUpReplaceDownload" class="btn btn-primary tailor-paisley" href="data:' + data + '" download="davemail.json">Right click here</a>').appendTo('#signUpDownload');
+                    $('<a id="signUpReplaceDownload" class="btn btn-primary tailor-paisley" href="data:' + data + '" download="davemail.json">Download</a>').appendTo('#signUpDownload');
 
                 }, 100);
             }
@@ -485,7 +446,15 @@
         $('#fileReplacedButton').hide();
         $('#fileReplacedLoader').show();
         setTimeout(function (){
-            loadDavemailAgain(davemail);
+            $('#signUpReplaceDownload').remove();
+            $('#signUpButton').show();
+            $('#signingUpLoader').hide();
+            $('#fileReplacedButton').show();
+            $('#fileReplacedLoader').hide();
+            $('#usernameHeading').text(davemail.username);
+            messagesPage();
+            davemail.messages = mapMessages(davemail);
+            buildMessagesTable(davemail);
         }, 500);
     });
 
