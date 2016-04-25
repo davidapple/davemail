@@ -1,0 +1,12 @@
+{
+  "name": "davemail",
+  "description": "Decentralised, encrypted, anonymous, offline messaging platform for git.",
+  "version": "1.2.0",
+  "manifest_version": 2,
+  "app": {
+    "background": {
+      "scripts": ["background.js"]
+    }
+  },
+  "icons": { "16": "davemail-16.png", "128": "davemail-128.png" }
+}
