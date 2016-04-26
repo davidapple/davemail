@@ -9,6 +9,7 @@
     "font-awesome": "^4.5.0",
     "datatables": "^1.10.11",
     "underscore": "^1.8.3",
+    "js-scrypt": "git://github.com/tonyg/js-scrypt.git#1427dcb6f58385fb83aafeb6d5ec05b3d1d72ec2",
     "cryptico": "git://github.com/wwwtyro/cryptico.git#9291ece634d37415e66396d749d38e612d66f935",
     "zxcvbn": "^4.3.0",
     "jquery.listfilter": "^1.0.10",

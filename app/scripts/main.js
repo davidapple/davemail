@@ -4,6 +4,8 @@
     window.davemail = new Object();
     davemail.info = 'Davemail 1.0.0 by David Apple https://github.com/davidapple/davemail Donate Bitcoin to 13D3A8PP91MLF5VTBQMH5HG76F42RNRF28';
 
+    var scrypt = scrypt_module_factory(); // https://github.com/tonyg/js-scrypt
+
     // - Functions
     function loadDavemail(){
         return $.getJSON('davemail.json', function() {
@@ -234,15 +236,28 @@
         davemail.messages = undefined;
         return davemail;
     }
+    function scryptMe(string){
+        // Scrypt - https://github.com/tonyg/js-scrypt
+        var newString = string;
+        _.each(_.range(8), function(num){
+            var utf8String = scrypt.encode_utf8(newString);
+            var utf8Salt = scrypt.encode_utf8('davemail');
+            var utf8StringScrypt = scrypt.crypto_scrypt(utf8String, utf8Salt, Math.pow(2, 14), 8, 1, 64);
+            newString = scrypt.to_hex(utf8StringScrypt);
+            console.log(newString);
+        });
+        return newString;
+    }
     function generateKeyPair(davemail){
-        davemail.privateKey = cryptico.generateRSAKey(davemail.password, 1536);
+        davemail.privateKey = cryptico.generateRSAKey(scryptMe(davemail.password), 1536);
         davemail.publicKey = cryptico.publicKeyString(davemail.privateKey);
         console.log(davemail.privateKey);
         console.log(davemail.publicKey);
         return davemail;
     }
-    function encryptMessage(){
-        var message = cryptico.encrypt($('#composeMessage').val(), $('#composePublicKey').val());
+    function encryptMessage(string, time, key){
+        var nonce = scryptMe(time);
+        var message = cryptico.encrypt(string.concat(nonce), key);
         return message;
     }
 
@@ -252,8 +267,9 @@
             var message = cryptico.decrypt(num.cipher, davemail.privateKey);
             if (message.status == 'success'){
                 var timeReadable = moment(num.time).format("MMM Do YY");
-                davemail.decryptedMessages.push([ message.plaintext, timeReadable ]);
-                return [ message.plaintext, timeReadable ];
+                var messageWithoutNonce = message.plaintext.substring(0, (message.plaintext.length) - 128);
+                davemail.decryptedMessages.push([ messageWithoutNonce, timeReadable ]);
+                return [ messageWithoutNonce, timeReadable ];
             }
         });
     }
@@ -450,7 +466,8 @@
         if(davemail.jsonData.responseJSON.davemail.users[$('#composeTo').val()].publicKey == $('#composePublicKey').val()){
             $(this).hide();
             $('#sendingLoader').show();
-            var message = encryptMessage();
+            var date = new Date();
+            var message = encryptMessage($('#composeMessage').val(), date.toISOString(), $('#composePublicKey').val());
             console.log(message);
             if(message.status == 'success'){
                 setTimeout(function (){
@@ -462,7 +479,6 @@
                     $('#signUpReplace').show();
 
                     // Regenerate emails json
-                    var date = new Date();
                     var users = davemail.jsonData.responseJSON.davemail.users;
                     var emails = davemail.jsonData.responseJSON.davemail.emails;
                     var servers = davemail.jsonData.responseJSON.davemail.servers;
