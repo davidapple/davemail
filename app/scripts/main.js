@@ -239,13 +239,11 @@
     function scryptMe(string){
         // Scrypt - https://github.com/tonyg/js-scrypt
         var newString = string;
-        _.each(_.range(8), function(num){
-            var utf8String = scrypt.encode_utf8(newString);
-            var utf8Salt = scrypt.encode_utf8('davemail');
-            var utf8StringScrypt = scrypt.crypto_scrypt(utf8String, utf8Salt, Math.pow(2, 14), 8, 1, 64);
-            newString = scrypt.to_hex(utf8StringScrypt);
-            console.log(newString);
-        });
+        var utf8String = scrypt.encode_utf8(newString);
+        var utf8Salt = scrypt.encode_utf8('davemail');
+        var utf8StringScrypt = scrypt.crypto_scrypt(utf8String, utf8Salt, Math.pow(2, 14), 8, 1, 64);
+        newString = scrypt.to_hex(utf8StringScrypt);
+        console.log(newString);
         return newString;
     }
     function generateKeyPair(davemail){
