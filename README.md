@@ -20,11 +20,13 @@ Clone or download this repository and open `dist/index.html`. Simple!
 
 [Pretty Good Privacy (PGP)](https://en.wikipedia.org/wiki/Pretty_Good_Privacy) is a solution to some of the problems with SMTP email as the email body is encrypted. However the PGP key pair is created [nondeterministically](https://en.wikipedia.org/wiki/Nondeterministic_algorithm) so the private key must be saved and stored securely in order to decrypted messages. The email metadata (sender, recievers, subject, time) is still prone to interception and mass survailance.
 
-## RSA Encrypted Davemail
+## Scrypt and RSA Encrypted Davemail
 
 Davemail is an alternative to SMTP email. Data is stored in json format with user data separated from the encrypted message data. The json data is open source and decentralised using [git](https://en.wikipedia.org/wiki/Git_(software)) but it is impossible for anyone to deduce which encrypted message was sent to or from which users (unless you hold the key to messages sent to you).
 
 RSA keys are generated [deterministically](https://en.wikipedia.org/wiki/Deterministic_algorithm) so it is possible to restore long private keys using a strong and memorable passphrase. No need to save and secure a private key on a local machine.
+
+The [https://github.com/Tarsnap/scrypt](Scrypt) key derivation function makes brute-force attacks costly. Scrypt is applied to all passwords before the RSA keys are generated.
 
 The Davemail application makes reading and sending encrypted messages easy, hiding the encryption process to improve the user experience. The Davemail application also works offline, so your passphrase can be protected from hackers using keyloggers or screen capture attacks.
 

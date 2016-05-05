@@ -2,7 +2,7 @@
 
 (function(){
     window.davemail = new Object();
-    davemail.info = 'Davemail 1.0.0 by David Apple https://github.com/davidapple/davemail Donate Bitcoin to 13D3A8PP91MLF5VTBQMH5HG76F42RNRF28';
+    davemail.info = 'Davemail 2.0.0 by David Apple https://github.com/davidapple/davemail Donate Bitcoin to 13D3A8PP91MLF5VTBQMH5HG76F42RNRF28';
 
     var scrypt = scrypt_module_factory(); // https://github.com/tonyg/js-scrypt
 
