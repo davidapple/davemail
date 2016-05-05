@@ -18,7 +18,7 @@ Clone or download this repository and open `dist/index.html`. Simple!
 
 ## PGP encryption problems
 
-[Pretty Good Privacy (PGP)](https://en.wikipedia.org/wiki/Pretty_Good_Privacy) is a solution to some of the problems with SMTP email as the email body is encrypted. However the PGP key pair is created [nondeterministically](https://en.wikipedia.org/wiki/Nondeterministic_algorithm) so the private key must be saved and stored securely in order to decrypted messages. The email metadata (sender, recievers, subject, time) is still prone to interception and mass survailance.
+[Pretty Good Privacy (PGP)](https://en.wikipedia.org/wiki/Pretty_Good_Privacy) is a solution to some of the problems with SMTP email as the email body is encrypted. However the PGP key pair is created [nondeterministically](https://en.wikipedia.org/wiki/Nondeterministic_algorithm) so the private key must be saved and stored securely in order to decrypt messages. The email metadata (sender, recievers, subject, time) is still prone to interception and mass survailance.
 
 ## Scrypt and RSA Encrypted Davemail
 
