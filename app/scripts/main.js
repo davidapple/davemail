@@ -266,6 +266,10 @@
             if (message.status == 'success'){
                 var timeReadable = moment(num.time).format("MMM Do YY");
                 var messageWithoutNonce = message.plaintext.substring(0, (message.plaintext.length) - 128);
+                if (messageWithoutNonce.length > 34){
+                    messageWithoutNonce = messageWithoutNonce.substring(0, 64);
+                    messageWithoutNonce = messageWithoutNonce + '&hellip;';
+                }
                 davemail.decryptedMessages.push([ messageWithoutNonce, timeReadable ]);
                 return [ messageWithoutNonce, timeReadable ];
             }
